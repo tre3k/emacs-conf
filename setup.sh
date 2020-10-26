@@ -41,6 +41,13 @@ function f_init(){
     echo "   )" >> ${CURR_DIR}/packages/packages.el
     echo "  )" >> ${CURR_DIR}/packages/packages.el
     echo "(provide 'packages)" >> ${CURR_DIR}/packages/packages.el
+
+    echo "All customs packages is cloned"
+    echo "el-get packages will be installed on first launch emacs"
+    echo "Install fons"
+    cp -r ${CURR_DIR}/fonts/* ~/.fonts
+    echo "Done."
+    
 }
 
 function f_update(){
