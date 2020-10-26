@@ -19,7 +19,7 @@ PACKAGES_LOCAL_URL=(
 )
 
 
-
+# CODE:
 function f_init(){
     echo "Init..."
 
@@ -45,13 +45,20 @@ function f_init(){
     echo "All customs packages is cloned"
     echo "el-get packages will be installed on first launch emacs"
     echo "Install fons"
-    cp -r ${CURR_DIR}/fonts/* ~/.fonts
+    mkdir -p ~/.fonts
+    tar -xf ${CURR_DIR}/fonts/font*.tar.xz -C ~/.fonts
+    fc-cache -f
     echo "Done."
-    
 }
 
 function f_update(){
     echo "Update..."
+    for path in ${PACKAGES_LOCAL_URL}
+    do
+	echo "cd" ${path}
+	cd ${path}
+	git pull
+    done
 }
 
 case $1 in
