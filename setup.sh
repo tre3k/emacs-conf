@@ -46,11 +46,13 @@ function f_init(){
 
     echo "All customs packages is cloned"
     echo "el-get packages will be installed on first launch emacs"
-    echo "Install fons"
+    echo "Install fonts"
     mkdir -p ~/.fonts
     tar -xf ${CURR_DIR}/fonts/font*.tar.xz -C ~/.fonts
     fc-cache -f
     echo "Done."
+
+    echo "for work eglot you need LSP (ccls - for c/c++ or clangd) (pyls - for python)"
 }
 
 function f_update(){

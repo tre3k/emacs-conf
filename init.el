@@ -79,7 +79,7 @@
 (require 'el-get)
 
 
-;; MaGIT:
+;; MAGIT:
 (el-get 'sync "magit")
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
@@ -87,14 +87,23 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
 (require 'magit)
 
-;; eglot (dep: flymake, eldoc, project.el )
-(el-get 'sync "flymake")
-(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 
-(require 'flymake)
+;; EGLOT: (dep: flymake, eldoc, project.el )
+;(el-get 'sync "flycheck")
+;(add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
+(el-get 'sync "json-rpc")
+(add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
+
+;(require 'flycheck)
+(require 'json-rpc)
 (require 'eglot)
 
-;; nav
+(add-hook 'c-mode-hook 'eglot)
+(add-hook 'c++-mode-hook 'eglot)
+(add-hook 'python-mode-hook 'eglot)
+
+
+;; NAV:
 (el-get 'sync "nav")
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
 (require 'nav)
