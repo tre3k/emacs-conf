@@ -51,26 +51,12 @@
 (add-to-list 'load-path "~/.emacs.d/packages")
 (require 'packages)
 
+;; See setup.sh
 (setq my_package_list (packages))
 (while my_package_list
-  (add-to-list 'load-path (car my_package_list))    ;; add to list "load-path" list from packages.el file
+  (add-to-list 'load-path (car my_package_list))            ;; add to list "load-path" list from packages.el file
   (setq my_package_list (cdr my_package_list))
   )
-
-;; manual packages 
-(add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
-(add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
-
-;; install with help el-get
-;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
-(require 'el-get)
-
-;; MaGIT:
-(add-to-list 'load-path "~/.emacs.d/el-get/dash")
-(add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
-(add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
-(add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
-
 
 (require 'imenu)                                            ;; imenu
 (require 'imenu-list)                                       ;; imenu-list
@@ -79,10 +65,30 @@
 (require 'fuzzy)
 (require 'auto-complete)                                    ;; auto-complete
 
+;; manual packages 
+(add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
+(add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
+
 (require 'cmake-mode)                                       ;; cmake-mode
+(require 'tre3k-templates)                                  ;; Just my templates
+
+;; install with help el-get
+;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
+(require 'el-get)
+
+
+;; MaGIT:
+
+(el-get 'sync "magit")
+
+(add-to-list 'load-path "~/.emacs.d/el-get/dash")
+(add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
+(add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
+(add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
+
 (require 'magit)
 
-(require 'tre3k-templates)                                  ;; Just my templates
+
 
 ;; ------------ Start packages ------------ ;;
 
