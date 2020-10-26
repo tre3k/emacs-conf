@@ -48,13 +48,15 @@
 
 ;; ------------ Requery packages:  ------------ ;;
 ;; load paths with packages:
-;; My packages
-(add-to-list 'load-path "~/.emacs.d/packages/imenu-list")            ;; imenu-list
-(add-to-list 'load-path "~/.emacs.d/packages/popup-el")              ;; need for auto-complete
-(add-to-list 'load-path "~/.emacs.d/packages/fuzzy-el")              ;; need for auto-complete
-(add-to-list 'load-path "~/.emacs.d/packages/auto-complete")         ;; auto-complete
-(add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")            ;; cmake mode
-(add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
+(add-to-list 'load-path "~/.emacs.d/packages")
+(require 'packages)
+
+(setq my_package_list (packages))
+(while my_package_list
+  (add-to-list 'load-path (car my_package_list))    ;; add to list "load-path" list from packages.el file
+  (setq my_package_list (cdr my_package_list))
+  )
+
 
 ;; install with help el-get
 (add-to-list 'load-path "~/.emacs.d/el-get")
