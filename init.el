@@ -87,6 +87,9 @@
 
 (require 'magit)
 
+
+(require 'eglot)
+
 ;; nav
 (el-get 'sync "nav")
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
