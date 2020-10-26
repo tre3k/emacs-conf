@@ -53,6 +53,23 @@ function f_init(){
     echo "Done."
 
     echo "for work eglot you need LSP (ccls - for c/c++ or clangd) (pyls - for python)"
+    read -r -p "do you want install java LSP (for eglot) [y/N] " response
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+    then
+	install_java_lps
+    fi
+}
+
+function install_java_lps(){
+    echo "install java LPS..."
+    mkdir -p ${CURR_DIR}/LSP
+    git clone https://github.com/eclipse/eclipse.jdt.ls ${CURR_DIR}/LSP
+    cd ${CURR_DIR}/LSP
+    ./mvnw clean verify
+    CLASSPATH=${CLASSPATH}:${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/plugins/
+    echo "export CLASSPATH="${CLASSPATH} >> ~/.bash_profile
+    echo "CLASSPATH+=${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/plugins/"
+    echo "relogin for update user enviroments\n"
 }
 
 function f_update(){
