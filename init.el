@@ -65,7 +65,7 @@
 (require 'fuzzy)
 (require 'auto-complete)                                    ;; auto-complete
 
-;; manual packages 
+;; --  manual packages -- ;; 
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/project-el")
@@ -74,7 +74,8 @@
 (require 'tre3k-templates)                                  ;; Just my templates
 (require 'project)                                          ;; need for eglot
 
-;; install with help el-get
+
+;; -- Install with help el-get -- ;;
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
 (require 'el-get)
 
@@ -89,18 +90,31 @@
 
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
-;(el-get 'sync "flycheck")
-;(add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
+(el-get 'sync "flycheck")
+(add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
 (el-get 'sync "json-rpc")
 (add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
+(el-get 'sync "ac-company")
+(add-to-list 'load-path "~/.emacs.d/el-get/ac-company")
+(el-get 'sync "company-c-headers")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-c-headers")
+(el-get 'sync "yasnippet")
+(add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
+(el-get 'sync "markdown-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
 
-;(require 'flycheck)
+(require 'flycheck)
 (require 'json-rpc)
+(require 'ac-company)
+(require 'company-c-headers)
+(require 'yasnippet)
+(require 'markdown-mode)
 (require 'eglot)
 
-(add-hook 'c-mode-hook 'eglot)
-(add-hook 'c++-mode-hook 'eglot)
-(add-hook 'python-mode-hook 'eglot)
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(add-hook 'python-mode-hook 'eglot-ensure)
 
 
 ;; NAV:
@@ -110,7 +124,8 @@
 
 ;; ------------ Start packages ------------ ;;
 
-(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+(global-company-mode)
+;(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
@@ -126,7 +141,7 @@
 
 (global-set-key (kbd "<f3>") 'query-replace)                ;; find and replace
 ;(global-set-key (kbd "<f6>") 'imenu)
-;(global-set-key (kbd "<f7>") 'imenu-list)
+(global-set-key (kbd "<f7>") 'imenu-list)
 (global-set-key (kbd "<f6>") 'imenu-list-smart-toggle)
 (global-set-key (kbd "<f8>") 'compile)
 (global-set-key (kbd "<f9>") 'recompile)
