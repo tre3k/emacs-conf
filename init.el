@@ -57,9 +57,12 @@
   (setq my_package_list (cdr my_package_list))
   )
 
+;; manual packages 
+(add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
+(add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 
 ;; install with help el-get
-(add-to-list 'load-path "~/.emacs.d/el-get")
+;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
 (require 'el-get)
 
 ;; MaGIT:

@@ -6,10 +6,16 @@ CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PACKAGES_GIT_URL=(
     "https://github.com/dimitri/el-get"
     "https://github.com/auto-complete/fuzzy-el"
+    "https://github.com/auto-complete/auto-complete"
+    "https://github.com/bmag/imenu-list"
+    "https://github.com/auto-complete/popup-el"
 )
 PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/el-get
     ${CURR_DIR}/packages/fuzzy-el
+    ${CURR_DIR}/packages/auto-complete
+    ${CURR_DIR}/packages/imenu-list
+    ${CURR_DIR}/packages/popup-el
 )
 
 
