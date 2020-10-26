@@ -68,9 +68,11 @@
 ;; manual packages 
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
+(add-to-list 'load-path "~/.emacs.d/packages/project-el")
 
 (require 'cmake-mode)                                       ;; cmake-mode
 (require 'tre3k-templates)                                  ;; Just my templates
+(require 'project)                                          ;; need for eglot
 
 ;; install with help el-get
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
@@ -79,15 +81,17 @@
 
 ;; MaGIT:
 (el-get 'sync "magit")
-
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
 (add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
-
 (require 'magit)
 
+;; eglot (dep: flymake, eldoc, project.el )
+(el-get 'sync "flymake")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 
+(require 'flymake)
 (require 'eglot)
 
 ;; nav
