@@ -9,6 +9,7 @@ PACKAGES_GIT_URL=(
     "https://github.com/auto-complete/auto-complete"
     "https://github.com/bmag/imenu-list"
     "https://github.com/auto-complete/popup-el"
+    "https://github.com/joaotavora/eglot"
 )
 PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/el-get
@@ -16,6 +17,7 @@ PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/packages/auto-complete
     ${CURR_DIR}/packages/imenu-list
     ${CURR_DIR}/packages/popup-el
+    ${CURR_DIR}/packages/eglot
 )
 
 
