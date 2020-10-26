@@ -78,7 +78,6 @@
 
 
 ;; MaGIT:
-
 (el-get 'sync "magit")
 
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
@@ -88,7 +87,10 @@
 
 (require 'magit)
 
-
+;; nav
+(el-get 'sync "nav")
+(add-to-list 'load-path "~/.emacs.d/el-get/nav")
+(require 'nav)
 
 ;; ------------ Start packages ------------ ;;
 
