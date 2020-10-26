@@ -53,6 +53,8 @@ function f_init(){
 
 function f_update(){
     echo "Update..."
+    cd ${CURR_DIR}
+    git pull
     for path in ${PACKAGES_LOCAL_URL}
     do
 	echo "cd" ${path}
