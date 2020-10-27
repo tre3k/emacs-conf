@@ -66,10 +66,11 @@ function install_java_lps(){
     git clone https://github.com/eclipse/eclipse.jdt.ls ${CURR_DIR}/LSP
     cd ${CURR_DIR}/LSP
     ./mvnw clean verify
-    CLASSPATH=${CLASSPATH}:${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/plugins/
+    CLASSPATH=${CLASSPATH}:${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/
     echo "export CLASSPATH="${CLASSPATH} >> ~/.bash_profile
-    echo "CLASSPATH+=${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/plugins/"
-    echo "relogin for update user enviroments\n"
+    export CLASSPATH=${CLASSPATH}
+    echo "CLASSPATH+=${CURR_DIR}/LSP/org.eclipse.jdt.ls.product/target/repository/"
+    echo "relogin for update user enviroments"
 }
 
 function f_update(){
