@@ -79,15 +79,17 @@
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
 (require 'el-get)
 
-
 ;; MAGIT:
-(el-get 'sync "magit")
+(el-get 'sync "dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
+(el-get 'sync "with-editor")
 (add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
+(el-get 'sync "transient")
 (add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
+(el-get 'sync "magit")
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
-(require 'magit)
 
+(require 'magit)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
@@ -122,9 +124,13 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/docker")
 (el-get 'sync "dockerfile-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/dockerfile-mode")
+(el-get 'sync "yaml-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/yaml-mode")
 
 (require 'docker)
 (require 'dockerfile-mode)
+(require 'yaml-mode)
+(require 'docker-compose-mode)  ;; from ~/.emacs.d/packages/
 
 ;; NAV:
 (el-get 'sync "nav")
@@ -170,8 +176,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "0c8c8687f2c82dd02a664e1d05007ae33b59f4ef9060e0c53db87529dad719ad" default))
- '(package-selected-packages '(dash)))
+   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

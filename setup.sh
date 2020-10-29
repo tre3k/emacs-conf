@@ -10,6 +10,7 @@ PACKAGES_GIT_URL=(
     "https://github.com/bmag/imenu-list"
     "https://github.com/auto-complete/popup-el"
     "https://github.com/joaotavora/eglot"
+    "https://github.com/meqif/docker-compose-mode"
 )
 PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/el-get
@@ -18,6 +19,7 @@ PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/packages/imenu-list
     ${CURR_DIR}/packages/popup-el
     ${CURR_DIR}/packages/eglot
+    ${CURR_DIR}/packages/docker-compose-mode
 )
 
 
