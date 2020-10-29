@@ -116,6 +116,16 @@
 ;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
 (add-hook 'python-mode-hook 'eglot-ensure)
 
+
+;; Docker
+(el-get 'sync "docker")
+(add-to-list 'load-path "~/.emacs.d/el-get/docker")
+(el-get 'sync "dockerfile-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/dockerfile-mode")
+
+(require 'docker)
+(require 'dockerfile-mode)
+
 ;; NAV:
 (el-get 'sync "nav")
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
