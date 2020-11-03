@@ -137,6 +137,10 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
 (require 'nav)
 
+(el-get 'sync "pkgbuild-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
+(require 'pkgbuild-mode)
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
