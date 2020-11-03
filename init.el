@@ -65,34 +65,86 @@
 (require 'fuzzy)
 (require 'auto-complete)                                    ;; auto-complete
 
-;; manual packages 
+;; --  manual packages -- ;; 
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
+(add-to-list 'load-path "~/.emacs.d/packages/project-el")
 
 (require 'cmake-mode)                                       ;; cmake-mode
 (require 'tre3k-templates)                                  ;; Just my templates
+(require 'project)                                          ;; need for eglot
 
-;; install with help el-get
+
+;; -- Install with help el-get -- ;;
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
 (require 'el-get)
 
-
-;; MaGIT:
-
-(el-get 'sync "magit")
-
+;; MAGIT:
+(el-get 'sync "dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
+(el-get 'sync "with-editor")
 (add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
+(el-get 'sync "transient")
 (add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
+(el-get 'sync "magit")
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
 
 (require 'magit)
 
+;; EGLOT: (dep: flymake, eldoc, project.el )
+(el-get 'sync "flycheck")
+(add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
+(el-get 'sync "json-rpc")
+(add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
+(el-get 'sync "ac-company")
+(add-to-list 'load-path "~/.emacs.d/el-get/ac-company")
+(el-get 'sync "company-c-headers")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-c-headers")
+(el-get 'sync "yasnippet")
+(add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
+(el-get 'sync "markdown-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
 
+(require 'flycheck)
+(require 'json-rpc)
+(require 'ac-company)
+(require 'company-c-headers)
+(require 'yasnippet)
+(require 'markdown-mode)
+(require 'eglot)
+
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+(add-hook 'python-mode-hook 'eglot-ensure)
+
+
+;; Docker
+(el-get 'sync "docker")
+(add-to-list 'load-path "~/.emacs.d/el-get/docker")
+(el-get 'sync "dockerfile-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/dockerfile-mode")
+(el-get 'sync "yaml-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/yaml-mode")
+
+(require 'docker)
+(require 'dockerfile-mode)
+(require 'yaml-mode)
+(require 'docker-compose-mode)  ;; from ~/.emacs.d/packages/
+
+;; NAV:
+(el-get 'sync "nav")
+(add-to-list 'load-path "~/.emacs.d/el-get/nav")
+(require 'nav)
+
+(el-get 'sync "pkgbuild-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
+(require 'pkgbuild-mode)
 
 ;; ------------ Start packages ------------ ;;
 
-(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+(global-company-mode)
+;(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
@@ -108,7 +160,7 @@
 
 (global-set-key (kbd "<f3>") 'query-replace)                ;; find and replace
 ;(global-set-key (kbd "<f6>") 'imenu)
-;(global-set-key (kbd "<f7>") 'imenu-list)
+(global-set-key (kbd "<f7>") 'imenu-list)
 (global-set-key (kbd "<f6>") 'imenu-list-smart-toggle)
 (global-set-key (kbd "<f8>") 'compile)
 (global-set-key (kbd "<f9>") 'recompile)
@@ -128,8 +180,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "0c8c8687f2c82dd02a664e1d05007ae33b59f4ef9060e0c53db87529dad719ad" default))
- '(package-selected-packages '(dash)))
+   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
