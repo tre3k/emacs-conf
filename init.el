@@ -113,10 +113,10 @@
 (require 'markdown-mode)
 (require 'eglot)
 
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
+;(add-hook 'c-mode-hook 'eglot-ensure)
+;(add-hook 'c++-mode-hook 'eglot-ensure)
 ;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-(add-hook 'python-mode-hook 'eglot-ensure)
+;(add-hook 'python-mode-hook 'eglot-ensure)
 
 
 ;; Docker
@@ -144,12 +144,12 @@
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
-;(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
-(global-set-key (kbd "C-x a") 'auto-complete-mode)
+(global-set-key (kbd "C-x a") 'company-complete-common)
 (global-set-key (kbd "C-x r") 'revert-buffer)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
