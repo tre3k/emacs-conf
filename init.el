@@ -104,7 +104,13 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
 (el-get 'sync "markdown-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
+(el-get 'sync "c-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
+(el-get 'sync "cperl-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
 
+(require 'c-eldoc)
+(require 'cperl-mode)
 (require 'flycheck)
 (require 'json-rpc)
 (require 'ac-company)
