@@ -146,6 +146,21 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
 (require 'haskell-mode)
 
+;; Lua
+(el-get 'sync "lua-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
+(require 'lua-mode)
+
+(el-get 'sync "f")
+(add-to-list 'load-path "~/.emacs.d/el-get/f") 
+(el-get 'sync "s")
+(add-to-list 'load-path "~/.emacs.d/el-get/s")
+
+(el-get 'sync "company-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-lua") 
+(require 'company-lua)
+
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
