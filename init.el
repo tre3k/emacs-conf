@@ -141,6 +141,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
 (require 'pkgbuild-mode)
 
+;; Haskell
+(el-get 'sync "haskell-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
+(require 'haskell-mode)
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
