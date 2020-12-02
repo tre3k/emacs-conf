@@ -161,7 +161,7 @@
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
 (global-set-key (kbd "C-x a") 'company-complete-common)
-(global-set-key (kbd "C-x r") 'revert-buffer)
+(global-set-key (kbd "C-u") 'revert-buffer)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
