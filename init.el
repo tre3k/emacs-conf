@@ -91,6 +91,11 @@
 
 (require 'magit)
 
+;; Haskell
+(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
+(el-get 'sync "haskell-mode")
+(require 'haskell-mode)
+
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
