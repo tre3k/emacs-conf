@@ -152,6 +152,27 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
 (require 'pkgbuild-mode)
 
+;; LUA mode
+(el-get 'sync "s")
+(el-get 'sync "f")
+(add-to-list 'load-path "~/.emacs.d/el-get/s")
+(add-to-list 'load-path "~/.emacs.d/el-get/f")
+(require 's)
+(require 'f)
+
+
+
+(el-get 'sync "lua-mode")
+(el-get 'sync "flymake-lua")
+(el-get 'sync "company-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
+
+(require 'lua-mode)
+(require 'flymake-lua)
+(require 'company-lua)
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
