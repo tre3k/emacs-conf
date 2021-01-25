@@ -91,6 +91,11 @@
 
 (require 'magit)
 
+;; Haskell
+(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
+(el-get 'sync "haskell-mode")
+(require 'haskell-mode)
+
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
@@ -104,7 +109,13 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
 (el-get 'sync "markdown-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
+(el-get 'sync "c-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
+(el-get 'sync "cperl-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
 
+(require 'c-eldoc)
+(require 'cperl-mode)
 (require 'flycheck)
 (require 'json-rpc)
 (require 'ac-company)
@@ -151,6 +162,27 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
 (require 'pkgbuild-mode)
 
+;; LUA mode
+(el-get 'sync "s")
+(el-get 'sync "f")
+(add-to-list 'load-path "~/.emacs.d/el-get/s")
+(add-to-list 'load-path "~/.emacs.d/el-get/f")
+(require 's)
+(require 'f)
+
+
+
+(el-get 'sync "lua-mode")
+(el-get 'sync "flymake-lua")
+(el-get 'sync "company-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
+
+(require 'lua-mode)
+(require 'flymake-lua)
+(require 'company-lua)
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
@@ -160,7 +192,7 @@
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
 (global-set-key (kbd "C-x a") 'company-complete-common)
-(global-set-key (kbd "C-x r") 'revert-buffer)
+(global-set-key (kbd "C-u") 'revert-buffer)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
