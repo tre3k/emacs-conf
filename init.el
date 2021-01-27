@@ -173,6 +173,11 @@
 (require 'flymake-lua)
 (require 'company-lua)
 
+;; GnuPLOT
+
+(el-get' sync "gnuplot-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
