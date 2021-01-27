@@ -130,6 +130,16 @@
 ;(add-hook 'python-mode-hook 'eglot-ensure)
 
 
+;; Go-Lang
+(el-get 'sync "go-mode")
+(el-get 'sync "go-company")
+(el-get 'sync "go-eldoc")
+(el-get 'sync "go-flymake")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-company")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-flymake")
+
 ;; Docker
 (el-get 'sync "docker")
 (add-to-list 'load-path "~/.emacs.d/el-get/docker")
