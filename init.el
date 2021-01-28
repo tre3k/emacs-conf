@@ -198,6 +198,7 @@
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
 (global-set-key (kbd "C-x a") 'company-complete-common)
 (global-set-key (kbd "C-u") 'revert-buffer)
+(global-set-key (kbd "C-i") 'indent-region)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
@@ -215,7 +216,6 @@
 (global-set-key (kbd "M-g c") 'magit-commit-create)
 (global-set-key (kbd "M-g l") 'magit-log-all)
 (global-set-key (kbd "M-g s") 'magit-status)
-
 
 
 ;; ------------ End of my editing ------------ ;;
