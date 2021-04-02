@@ -217,6 +217,10 @@
 (global-set-key (kbd "M-g l") 'magit-log-all)
 (global-set-key (kbd "M-g s") 'magit-status)
 
+;; ------------- Auto mode alist ------------- ;;
+(add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
+(add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
+(add-to-list 'auto-mode-alist '("\\.plt\\'" . (lambda() (gnuplot-mode))))
 
 ;; ------------ End of my editing ------------ ;;
 
