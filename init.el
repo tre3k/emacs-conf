@@ -130,6 +130,16 @@
 ;(add-hook 'python-mode-hook 'eglot-ensure)
 
 
+;; Go-Lang
+(el-get 'sync "go-mode")
+(el-get 'sync "go-company")
+(el-get 'sync "go-eldoc")
+(el-get 'sync "go-flymake")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-company")
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
+;(add-to-list 'load-average "~/.emacs.d/el-get/go-flymake")
+
 ;; Docker
 (el-get 'sync "docker")
 (add-to-list 'load-path "~/.emacs.d/el-get/docker")
@@ -152,6 +162,32 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
 (require 'pkgbuild-mode)
 
+;; LUA mode
+(el-get 'sync "s")
+(el-get 'sync "f")
+(add-to-list 'load-path "~/.emacs.d/el-get/s")
+(add-to-list 'load-path "~/.emacs.d/el-get/f")
+(require 's)
+(require 'f)
+
+
+
+(el-get 'sync "lua-mode")
+(el-get 'sync "flymake-lua")
+(el-get 'sync "company-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake-lua")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
+
+(require 'lua-mode)
+(require 'flymake-lua)
+(require 'company-lua)
+
+;; GnuPLOT
+
+(el-get' sync "gnuplot-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
@@ -162,6 +198,7 @@
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
 (global-set-key (kbd "C-x a") 'company-complete-common)
 (global-set-key (kbd "C-u") 'revert-buffer)
+(global-set-key (kbd "C-i") 'indent-region)
 
 (global-set-key (kbd "<C-tab>") 'auto-complete)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
@@ -180,7 +217,10 @@
 (global-set-key (kbd "M-g l") 'magit-log-all)
 (global-set-key (kbd "M-g s") 'magit-status)
 
-
+;; ------------- Auto mode alist ------------- ;;
+(add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
+(add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
+(add-to-list 'auto-mode-alist '("\\.plt\\'" . (lambda() (gnuplot-mode))))
 
 ;; ------------ End of my editing ------------ ;;
 
