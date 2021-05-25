@@ -132,9 +132,9 @@
 
 ;; Go-Lang
 (el-get 'sync "go-mode")
-(el-get 'sync "go-company")
-(el-get 'sync "go-eldoc")
-(el-get 'sync "go-flymake")
+;(el-get 'sync "go-company")
+;(el-get 'sync "go-eldoc")
+;(el-get 'sync "go-flymake")
 ;(add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
 ;(add-to-list 'load-average "~/.emacs.d/el-get/go-company")
 ;(add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
