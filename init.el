@@ -255,6 +255,7 @@
 (global-set-key (kbd "M-g s") 'magit-status)
 (global-set-key (kbd "M-g p") 'magit-push)
 (global-set-key (kbd "M-g u") 'magit-pull)
+(global-set-key (kbd "M-g o") 'magit-show-commit)
 
 ;; for tab-bar-mode
 (global-set-key (kbd "M-n") 'tab-bar-switch-to-next-tab)
