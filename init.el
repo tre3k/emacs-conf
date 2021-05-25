@@ -201,6 +201,31 @@
 ;(add-hook 'python-mode-hook 'eglot-ensure)
 
 
+;; ------------- Calendar localization  ------------;;
+(setq calendar-week-start-day 1
+          calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда" 
+                                   "Четверг" "Пятница" "Суббота"]
+          calendar-day-header-array ["Вс" "Пн" "Вт" "Ср" "Чт" "Пт" "Сб"]
+          calendar-day-abbrev-array ["Вск" "Пнд" "Втр" "Сре" "Чтв" "Птн" "Суб"]
+          calendar-month-name-array ["Январь" "Февраль" "Март" "Апрель" "Май" 
+                                     "Июнь" "Июль" "Август" "Сентябрь"
+                                     "Октябрь" "Ноябрь" "Декабрь"]
+          calendar-month-abbrev-array ["Янв" "Фев" "Мар" "Апр" "Май" "Июн" "Июл" "Авг" "Сен" "Окт" "Ноя" "Дек"])
+
+(setq calendar-holidays
+      `(
+	;; State holidays
+	(holiday-fixed 1 1 "Новый год")
+	(holiday-fixed 7 1 "Рождество")
+	(holiday-fixed 2 23 "День защитника Отечества")
+	(holiday-fixed 3 8 "Международный женский день")
+	(holiday-fixed 5 1 "День труда")
+	(holiday-fixed 5 2 "День труда")
+	(holiday-fixed 5 9 "День Победы")
+	(holiday-fixed 6 12 "День России")
+	(holiday-fixed 10 4 "День Народного единства")
+      ))
+
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
