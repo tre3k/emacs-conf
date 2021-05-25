@@ -124,12 +124,6 @@
 (require 'markdown-mode)
 (require 'eglot)
 
-;(add-hook 'c-mode-hook 'eglot-ensure)
-;(add-hook 'c++-mode-hook 'eglot-ensure)
-;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-;(add-hook 'python-mode-hook 'eglot-ensure)
-
-
 ;; Go-Lang
 (el-get 'sync "go-mode")
 ;(el-get 'sync "go-company")
@@ -170,8 +164,6 @@
 (require 's)
 (require 'f)
 
-
-
 (el-get 'sync "lua-mode")
 (el-get 'sync "flymake-lua")
 (el-get 'sync "company-lua")
@@ -188,10 +180,26 @@
 (el-get' sync "gnuplot-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
 
+;; LaTex
+(el-get 'sync "magic-latex-buffer")
+(add-to-list 'load-path "~/.emacs.d/el-get/magic-latex-buffer")
+(el-get 'sync "company-math")
+(add-to-list 'load-path "~/.emacs.d/el-get/company-math")
+(require 'magic-latex-buffer)
+(require 'company-math)
+
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
 (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+
+;; ------------ Hooks ------------ ;;
+
+;(add-hook 'c-mode-hook 'eglot-ensure)
+;(add-hook 'c++-mode-hook 'eglot-ensure)
+;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+;(add-hook 'python-mode-hook 'eglot-ensure)
+
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
@@ -213,10 +221,17 @@
 (global-set-key (kbd "<f8>") 'compile)
 (global-set-key (kbd "<f9>") 'recompile)
 
+;; ispell, flyspell hotkeys
+(global-set-key (kbd "<f12>") 'ispell-word)
+
+;; MAGIT hot keys
 (global-set-key (kbd "M-g c") 'magit-commit-create)
 (global-set-key (kbd "M-g l") 'magit-log-all)
 (global-set-key (kbd "M-g s") 'magit-status)
+(global-set-key (kbd "M-g p") 'magit-push)
+(global-set-key (kbd "M-g u") 'magit-pull)
 
+;; for tab-bar-mode
 (global-set-key (kbd "M-n") 'tab-bar-switch-to-next-tab)
 
 ;; ------------- Auto mode alist ------------- ;;
