@@ -273,7 +273,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" default)))
+   '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

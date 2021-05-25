@@ -1,5 +1,5 @@
 (deftheme tre3k-dark
-  "Created 2020-10-25.")
+  "Created 2021-05-25.")
 
 (custom-theme-set-faces
  'tre3k-dark
@@ -10,7 +10,7 @@
  '(escape-glyph ((t (:weight bold :foreground "#ddaa6f"))))
  '(homoglyph ((t (:weight bold :foreground "#ddaa6f"))))
  '(minibuffer-prompt ((t (:foreground "#e5786d"))))
- '(highlight ((t (:underline (:color foreground-color :style line) :foreground "#ffffff" :background "#454545"))))
+ '(highlight ((t (:background "#654545" :foreground "#ffffff" :underline nil))))
  '(region ((t (:extend t :foreground "#f6f3e8" :background "#444444"))))
  '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "grey50")) (((class color grayscale) (min-colors 88) (background dark)) (:foreground "grey70")) (((class color) (min-colors 8) (background light)) (:foreground "green")) (((class color) (min-colors 8) (background dark)) (:foreground "yellow"))))
  '(secondary-selection ((t (:extend t :foreground "#f6f3e8" :background "#333366"))))
@@ -39,7 +39,7 @@
  '(mode-line ((t (:foreground "#f6f3e8" :background "#444444"))))
  '(mode-line-buffer-id ((t (:weight bold))))
  '(mode-line-emphasis ((t (:weight bold))))
- '(mode-line-highlight ((t (:box (:line-width 2 :color "#447674")))))
+ '(mode-line-highlight ((t (:box (:line-width 2 :color "#447674" :style nil)))))
  '(mode-line-inactive ((t (:foreground "#857b6f" :background "#444444"))))
  '(isearch ((t (:foreground "#857b6f" :background "#343434"))))
  '(isearch-fail ((((class color) (min-colors 88) (background light)) (:background "RosyBrown1")) (((class color) (min-colors 88) (background dark)) (:background "red4")) (((class color) (min-colors 16)) (:background "red")) (((class color) (min-colors 8)) (:background "red")) (((class color grayscale)) (:foreground "grey")) (t (:inverse-video t))))
