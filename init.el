@@ -20,6 +20,7 @@
 ;; d'not show welcome window
 (setq inhibit-splash-screen t)
 
+
 ;; moving through windows Shift+<arrow>
 (windmove-default-keybindings)
 
@@ -45,6 +46,10 @@
 
 ;; d'not break line
 (set-default 'truncate-lines t)
+
+;; highlight of search
+(setq search-highlight t)
+
 
 ;; ------------ Requery packages:  ------------ ;;
 ;; load paths with packages:
@@ -175,8 +180,20 @@
 (require 'flymake-lua)
 (require 'company-lua)
 
-;; GnuPLOT
+;; Bookmark+
+(el-get 'sync "bookmark+")
+(add-to-list 'load-path "~/.emacs.d/el-get/bookmark+")
+(require 'bookmark+)
 
+;; C-x r m - set bookmark
+;; C-x j j - jump to bookmark
+;; C-x r l - list bookmark (
+;;                           o - open in other buffer
+;;                           d - mark for delete,  x - accept
+;;                           r - rename)
+
+
+;; GnuPLOT
 (el-get' sync "gnuplot-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
 
@@ -192,6 +209,11 @@
 
 (global-company-mode)
 (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+
+;; auto highlight bookmarks (bookmark+)
+(bmkp-toggle-auto-light-when-jump)
+(bmkp-toggle-auto-light-when-set)
+
 
 ;; ------------ Hooks ------------ ;;
 
@@ -272,6 +294,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
