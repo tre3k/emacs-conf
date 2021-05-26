@@ -215,7 +215,7 @@
 (bmkp-toggle-auto-light-when-set)
 
 (set-face-attribute 'bmkp-light-non-autonamed nil
-		    :background "#445222")
+		    :background "#225222")
 
 ;; ------------ Hooks ------------ ;;
 
@@ -304,7 +304,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
