@@ -224,6 +224,14 @@
 ;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
 ;(add-hook 'python-mode-hook 'eglot-ensure)
 
+;; ------------- Agenda conf -----------------------;;
+
+(setq org-agenda-files '("~/org/main.org"
+			 "~/org/private.org"))
+
+;; -------------- Input method ---------------------;;
+(set-input-method "russian-typewriter")
+(toggle-input-method)
 
 ;; ------------- Calendar localization  ------------;;
 (setq calendar-week-start-day 1
