@@ -215,7 +215,7 @@
 (bmkp-toggle-auto-light-when-set)
 
 (set-face-attribute 'bmkp-light-non-autonamed nil
-		    :background "#447444")
+		    :background "#225222")
 
 ;; ------------ Hooks ------------ ;;
 
