@@ -218,6 +218,8 @@
 		    :background "#225222")
 
 ;; ------------ Hooks ------------ ;;
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'tex-mode-hook 'flyspell-mode)
 
 ;(add-hook 'c-mode-hook 'eglot-ensure)
 ;(add-hook 'c++-mode-hook 'eglot-ensure)
