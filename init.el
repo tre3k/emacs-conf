@@ -305,6 +305,7 @@
 (global-set-key (kbd "C-c h") 'hs-hide-all)
 
 
+
 ;; ------------- Auto mode alist ------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
@@ -325,6 +326,12 @@
 (add-hook 'python-mode-hook 'hs-minor-mode)
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
+
+;; EGLOT key
+(add-hook 'eglot--managed-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c r") 'eglot-rename)))
+
 
 ;; (add-hook 'c-mode-hook 'eglot)
 ;; (add-hook 'c++-mode-hook 'eglot)
