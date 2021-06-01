@@ -137,8 +137,6 @@
 (require 'markdown-mode)
 (require 'eglot)
 
-(global-flycheck-mode)
-
 ;; Go-Lang
 (el-get 'sync "go-mode")
 ;(el-get 'sync "go-company")
