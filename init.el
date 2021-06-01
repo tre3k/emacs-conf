@@ -217,20 +217,6 @@
 (set-face-attribute 'bmkp-light-non-autonamed nil
 		    :background "#225222")
 
-;; ------------ Org mode settings ----------------- ;;
-(setq org-hide-emphasis-markers t)
-
-;; ------------ Hooks ------------ ;;
-(add-hook 'latex-mode-hook 'flyspell-mode)
-(add-hook 'tex-mode-hook 'flyspell-mode)
-
-(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view C-c C-x \
-
-;(add-hook 'c-mode-hook 'eglot-ensure)
-;(add-hook 'c++-mode-hook 'eglot-ensure)
-;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-;(add-hook 'python-mode-hook 'eglot-ensure)
-
 ;; ------------- Agenda conf -----------------------;;
 
 (setq org-agenda-files '("~/org/main.org"
@@ -264,6 +250,12 @@
 	(holiday-fixed 6 12 "День России")
 	(holiday-fixed 10 4 "День Народного единства")
       ))
+
+;; ------------ Org mode settings ----------------- ;;
+(setq org-hide-emphasis-markers t)
+
+;; Hot keys
+;; C-c C-x C-l org-latex-preview
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
@@ -303,6 +295,20 @@
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.plt\\'" . (lambda() (gnuplot-mode))))
+
+;; ------------ Hooks ------------ ;;
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'tex-mode-hook 'flyspell-mode)
+
+(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view C-c C-x \
+(add-hook 'org-mode-hook
+	  (lambda () (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))))
+
+;(add-hook 'c-mode-hook 'eglot-ensure)
+;(add-hook 'c++-mode-hook 'eglot-ensure)
+;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+;(add-hook 'python-mode-hook 'eglot-ensure)
+
 
 ;; ------------ End of my editing ------------ ;;
 
