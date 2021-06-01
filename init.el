@@ -217,9 +217,14 @@
 (set-face-attribute 'bmkp-light-non-autonamed nil
 		    :background "#225222")
 
+;; ------------ Org mode settings ----------------- ;;
+(setq org-hide-emphasis-markers t)
+
 ;; ------------ Hooks ------------ ;;
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (add-hook 'tex-mode-hook 'flyspell-mode)
+
+(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view C-c C-x \
 
 ;(add-hook 'c-mode-hook 'eglot-ensure)
 ;(add-hook 'c++-mode-hook 'eglot-ensure)
