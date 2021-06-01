@@ -160,6 +160,11 @@
 (require 'yaml-mode)
 (require 'docker-compose-mode)  ;; from ~/.emacs.d/packages/
 
+;; Org-mode and etc
+(el-get 'sync "org-tree-slide") ;; presentation in org mode
+(add-to-list 'load-path "~/.emacs.d/el-get/org-tree-slide")
+(require 'org-tree-slide)
+
 ;; NAV:
 (el-get 'sync "nav")
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
