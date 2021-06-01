@@ -104,6 +104,12 @@
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
+(el-get 'sync "flycheck-irony")
+(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
+(el-get 'sync "flymake")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
+(el-get 'sync "flymake-pycheckers")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake-pycheckers")
 (el-get 'sync "json-rpc")
 (add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
 (el-get 'sync "ac-company")
@@ -119,6 +125,8 @@
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
 
+(require 'flymake-pycheckers)
+(require 'flycheck)
 (require 'c-eldoc)
 (require 'cperl-mode)
 (require 'flycheck)
@@ -128,6 +136,8 @@
 (require 'yasnippet)
 (require 'markdown-mode)
 (require 'eglot)
+
+(global-flycheck-mode)
 
 ;; Go-Lang
 (el-get 'sync "go-mode")
@@ -208,7 +218,7 @@
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
-(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+;; (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; auto highlight bookmarks (bookmark+)
 (bmkp-toggle-auto-light-when-jump)
@@ -264,7 +274,7 @@
 (global-set-key (kbd "C-u") 'revert-buffer)
 (global-set-key (kbd "C-i") 'indent-region)
 
-(global-set-key (kbd "<C-tab>") 'auto-complete)
+(global-set-key (kbd "<C-tab>") 'company-complete)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
 
 
