@@ -291,6 +291,12 @@
 ;; for tab-bar-mode
 (global-set-key (kbd "M-n") 'tab-bar-switch-to-next-tab)
 
+;; for hs-minor-mode (enable in hook)
+(global-set-key (kbd "C-=") 'hs-toggle-hiding)
+(global-set-key (kbd "C-c a") 'hs-show-all)
+(global-set-key (kbd "C-c h") 'hs-hide-all)
+
+
 ;; ------------- Auto mode alist ------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
@@ -300,15 +306,29 @@
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (add-hook 'tex-mode-hook 'flyspell-mode)
 
-(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view C-c C-x \
+(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view (as _x ^x \theta etc) 2 C-c C-x \
 (add-hook 'org-mode-hook
 	  (lambda () (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))))
 
-;(add-hook 'c-mode-hook 'eglot-ensure)
-;(add-hook 'c++-mode-hook 'eglot-ensure)
-;(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-;(add-hook 'python-mode-hook 'eglot-ensure)
+;; auto enable hs-minor-mode
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'python-mode-hook 'hs-minor-mode)
+(add-hook 'javascript-mode-hook 'hs-minor-mode)
+(add-hook 'sh-mode-hook 'hs-minor-mode)
 
+;; (add-hook 'c-mode-hook 'eglot)
+;; (add-hook 'c++-mode-hook 'eglot)
+;; (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+;; (add-hook 'python-mode-hook 'eglot-ensure)
+
+
+;; ------------- TAGS -------------- ;;
+;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
+;; M-. переход от декларации к функции/переменной
+;; M-, переход от функции/переменной к декларации
+;; M-? поиск переменной/функции в файлах
 
 ;; ------------ End of my editing ------------ ;;
 
@@ -320,7 +340,7 @@
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
+   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
