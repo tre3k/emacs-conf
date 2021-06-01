@@ -265,7 +265,7 @@
       ))
 
 ;; ------------ Org mode settings ----------------- ;;
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t) ;; скрывает всякие ** / / + + и.т.д
 
 ;; Hot keys
 ;; C-c C-x C-l org-latex-preview
