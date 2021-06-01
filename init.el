@@ -330,6 +330,12 @@
 ;; M-, переход от функции/переменной к декларации
 ;; M-? поиск переменной/функции в файлах
 
+;; (defun create-tags (dir-name)
+;;   "Create tags file."
+;;   (interactive "DDirectory: ")
+;;   (eshell-command 
+;;    (format "find %s -type f -name \"*.[ch]\" | etags -" dir-name)))
+
 ;; ------------ End of my editing ------------ ;;
 
 (custom-set-variables
