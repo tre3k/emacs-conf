@@ -100,11 +100,30 @@
 (el-get 'sync "haskell-mode")
 (require 'haskell-mode)
 
+;; ElDoc
+(el-get 'sync "c-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
+(el-get 'sync "css-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/css-eldoc")
+(el-get 'sync "eldoc-eval")
+(add-to-list 'load-path "~/.emacs.d/el-get/eldoc-eval")
+(require 'c-eldoc)
+(require 'eldoc-eval)
+
+;; Irony
+(el-get 'sync "irony-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
+(el-get 'sync "flycheck-irony")
+(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
+(el-get 'sync "irony-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
+;;(require 'irony-eldoc)
+;;(require 'flycheck-irony)
+;;(require 'irony-mode)
+
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
-;;(el-get 'sync "flycheck-irony")
-;;(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
 (el-get 'sync "flymake")
 (add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 (el-get 'sync "flymake-pycheckers")
@@ -119,25 +138,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
 (el-get 'sync "markdown-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
-(el-get 'sync "c-eldoc")
-(add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
-;;(el-get 'sync "irony-eldoc")
-;;(add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
-(el-get 'sync "css-eldoc")
-(add-to-list 'load-path "~/.emacs.d/el-get/css-eldoc")
-(el-get 'sync "eldoc-eval")
-(add-to-list 'load-path "~/.emacs.d/el-get/eldoc-eval")
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
-;;(el-get 'sync "irony-mode")
-;;(add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
-
 
 (require 'flymake-pycheckers)
 (require 'flycheck)
-(require 'c-eldoc)
-;;(require 'irony-eldoc)
-(require 'eldoc-eval)
 (require 'cperl-mode)
 (require 'flycheck)
 (require 'json-rpc)
@@ -380,10 +385,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
+   '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
