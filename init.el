@@ -238,6 +238,9 @@
 (require 'magic-latex-buffer)
 (require 'company-math)
 
+(setq TeX-parse-self t) ; Enable parse on load.
+(setq TeX-auto-save t) ; Enable parse on save.
+
 ;; ------------ Start packages ------------ ;;
 
 (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
