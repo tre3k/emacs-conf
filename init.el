@@ -107,6 +107,7 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/css-eldoc")
 (el-get 'sync "eldoc-eval")
 (add-to-list 'load-path "~/.emacs.d/el-get/eldoc-eval")
+(require 'css-eldoc)
 (require 'c-eldoc)
 (require 'eldoc-eval)
 
