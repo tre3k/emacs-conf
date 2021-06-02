@@ -165,6 +165,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/org-tree-slide")
 (require 'org-tree-slide)
 
+;; AUCTeX
+;;(el-get 'sync "auctex")
+;;(add-to-list 'load-path "~/.emacs.d/el-get/auctex")
+;;(require 'auctex)
+
 ;; NAV:
 (el-get 'sync "nav")
 (add-to-list 'load-path "~/.emacs.d/el-get/nav")
@@ -337,6 +342,8 @@
 	  (lambda ()
 	    (local-set-key (kbd "C-c r") 'eglot-rename)))
 
+;; Latex-mode
+(add-hook 'latex-mode-hook 'reftex-mode)
 
 ;; (add-hook 'c-mode-hook 'eglot)
 ;; (add-hook 'c++-mode-hook 'eglot)
