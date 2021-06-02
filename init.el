@@ -104,8 +104,8 @@
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
-(el-get 'sync "flycheck-irony")
-(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
+;;(el-get 'sync "flycheck-irony")
+;;(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
 (el-get 'sync "flymake")
 (add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 (el-get 'sync "flymake-pycheckers")
@@ -122,12 +122,23 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
 (el-get 'sync "c-eldoc")
 (add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
+;;(el-get 'sync "irony-eldoc")
+;;(add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
+(el-get 'sync "css-eldoc")
+(add-to-list 'load-path "~/.emacs.d/el-get/css-eldoc")
+;;(el-get 'sync "eldoc-eval")
+;;(add-to-list 'load-path "~/.emacs.d/el-get/eldoc-eval")
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
+;;(el-get 'sync "irony-mode")
+;;(add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
+
 
 (require 'flymake-pycheckers)
 (require 'flycheck)
 (require 'c-eldoc)
+;;(require 'irony-eldoc)
+;;(require 'eldoc-eval)
 (require 'cperl-mode)
 (require 'flycheck)
 (require 'json-rpc)
@@ -226,7 +237,7 @@
 ;; ------------ Start packages ------------ ;;
 
 (global-company-mode)
-;; (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; auto highlight bookmarks (bookmark+)
 (bmkp-toggle-auto-light-when-jump)
@@ -345,6 +356,11 @@
 ;; Latex-mode
 (add-hook 'latex-mode-hook 'reftex-mode)
 (add-hook 'bibtex-mode-hook 'reftex-mode)
+
+;; ElDoc C/C++
+(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
+
 
 ;; (add-hook 'c-mode-hook 'eglot)
 ;; (add-hook 'c++-mode-hook 'eglot)
