@@ -87,6 +87,16 @@ function f_update(){
     done
 }
 
+function f_help(){
+    echo "$0 <init/update>"
+    exit 0
+}
+
+if [[ "$#" == 0 ]]
+then
+    f_help
+fi
+
 case $1 in
     init)
 	f_init
@@ -94,5 +104,7 @@ case $1 in
     update)
 	f_update
 	;;
-    
+    *)
+	f_help
+	;;
 esac
