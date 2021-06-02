@@ -344,6 +344,7 @@
 
 ;; Latex-mode
 (add-hook 'latex-mode-hook 'reftex-mode)
+(add-hook 'bibtex-mode-hook 'reftex-mode)
 
 ;; (add-hook 'c-mode-hook 'eglot)
 ;; (add-hook 'c++-mode-hook 'eglot)
