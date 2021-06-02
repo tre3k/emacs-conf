@@ -20,7 +20,6 @@
 ;; d'not show welcome window
 (setq inhibit-splash-screen t)
 
-
 ;; moving through windows Shift+<arrow>
 (windmove-default-keybindings)
 
@@ -236,7 +235,6 @@
 
 ;; ------------ Start packages ------------ ;;
 
-(global-company-mode)
 (global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
 
 ;; auto highlight bookmarks (bookmark+)
@@ -361,12 +359,7 @@
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
 
-
-;; (add-hook 'c-mode-hook 'eglot)
-;; (add-hook 'c++-mode-hook 'eglot)
-;; (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-;; (add-hook 'python-mode-hook 'eglot-ensure)
-
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; ------------- TAGS -------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
