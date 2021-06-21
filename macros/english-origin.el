@@ -1,0 +1,16 @@
+(defun eo-insert (start end)
+  "english origin insert for LaTeX"
+  (interactive "r")
+  (setq end_of_region end)
+  (comment-region start end)
+  (newline)
+  (insert "%% -------------------- End english origin ----------------- %%")
+  (newline)
+  (goto-char start)
+  (previous-line)
+  (end-of-line)
+  (newline)
+  (insert "%% -------------------- English origin --------------------  %%")
+  )
+
+(provide 'eo-insert)
