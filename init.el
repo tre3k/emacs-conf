@@ -241,6 +241,9 @@
 
 (setq TeX-parse-self t) ; Enable parse on load.
 (setq TeX-auto-save t) ; Enable parse on save.
+(setq LaTeX-parse-self t) ; Enable parse on load.
+(setq LaTeX-auto-save t) ; Enable parse on save.
+
 
 ;; ------------ Start packages ------------ ;;
 
