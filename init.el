@@ -69,7 +69,7 @@
 (require 'fuzzy)
 (require 'auto-complete)                                    ;; auto-complete
 
-;; --  manual packages -- ;; 
+;; --  manual packages -- ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/project-el")
@@ -247,7 +247,8 @@
 
 ;; ------------ Start packages ------------ ;;
 
-(global-auto-complete-mode)                                 ;; enable auto-complete-mode for all buffers
+;; enable auto-complete-mode for all buffers
+(global-auto-complete-mode)
 
 ;; auto highlight bookmarks (bookmark+)
 (bmkp-toggle-auto-light-when-jump)
@@ -267,14 +268,15 @@
 
 ;; ------------- Calendar localization  ------------;;
 (setq calendar-week-start-day 1
-          calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда" 
+          calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда"
                                    "Четверг" "Пятница" "Суббота"]
           calendar-day-header-array ["Вс" "Пн" "Вт" "Ср" "Чт" "Пт" "Сб"]
           calendar-day-abbrev-array ["Вск" "Пнд" "Втр" "Сре" "Чтв" "Птн" "Суб"]
-          calendar-month-name-array ["Январь" "Февраль" "Март" "Апрель" "Май" 
+          calendar-month-name-array ["Январь" "Февраль" "Март" "Апрель" "Май"
                                      "Июнь" "Июль" "Август" "Сентябрь"
                                      "Октябрь" "Ноябрь" "Декабрь"]
-          calendar-month-abbrev-array ["Янв" "Фев" "Мар" "Апр" "Май" "Июн" "Июл" "Авг" "Сен" "Окт" "Ноя" "Дек"])
+          calendar-month-abbrev-array ["Янв" "Фев" "Мар" "Апр" "Май" "Июн"
+				       "Июл" "Авг" "Сен" "Окт" "Ноя" "Дек"])
 
 (setq calendar-holidays
       `(
@@ -298,7 +300,7 @@
 
 ;; ------------ Bind keys:  ------------ ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
-(global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected 
+(global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected
 (global-set-key (kbd "C-x a") 'company-complete-common)
 (global-set-key (kbd "C-u") 'revert-buffer)
 (global-set-key (kbd "C-i") 'indent-region)
@@ -355,6 +357,8 @@
 (add-hook 'c++-mode-hook 'hs-minor-mode)
 (add-hook 'c-mode-hook 'hs-minor-mode)
 (add-hook 'python-mode-hook 'hs-minor-mode)
+;; (add-hook 'python-mode-hook 'flycheck-mode)
+;; (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
 
@@ -382,7 +386,7 @@
 ;; (defun create-tags (dir-name)
 ;;   "Create tags file."
 ;;   (interactive "DDirectory: ")
-;;   (eshell-command 
+;;   (eshell-command
 ;;    (format "find %s -type f -name \"*.[ch]\" | etags -" dir-name)))
 
 ;; ------------ End of my editing ------------ ;;
