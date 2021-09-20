@@ -10,6 +10,9 @@
 ;; disable blink cursor
 (blink-cursor-mode 0)
 
+;; vertival line 80 charset
+(setq-default display-fill-column-indicator-column 79)
+
 ;; good buufer shower
 (setq redisplay-dont-pause t)
 ;; global clipboard with OS
@@ -73,11 +76,13 @@
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/project-el")
+(add-to-list 'load-path "~/.emacs.d/packages/move-text")
+
 
 (require 'cmake-mode)                                       ;; cmake-mode
 (require 'tre3k-templates)                                  ;; Just my templates
 (require 'project)                                          ;; need for eglot
-
+(require 'move-text)
 
 ;; -- Install with help el-get -- ;;
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
@@ -99,6 +104,12 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
 (el-get 'sync "haskell-mode")
 (require 'haskell-mode)
+
+;; Py-isort
+(el-get 'sync "py-isort")
+(add-to-list 'load-path "~/.emacs.d/el-get/py-isort")
+(require 'py-isort)
+
 
 ;; ElDoc
 (el-get 'sync "c-eldoc")
@@ -330,14 +341,16 @@
 (global-set-key (kbd "M-g o") 'magit-show-commit)
 
 ;; for tab-bar-mode
-(global-set-key (kbd "M-n") 'tab-bar-switch-to-next-tab)
+(global-set-key (kbd "<C-M-tab>") 'tab-bar-switch-to-next-tab)
 
 ;; for hs-minor-mode (enable in hook)
 (global-set-key (kbd "C-=") 'hs-toggle-hiding)
 (global-set-key (kbd "C-c a") 'hs-show-all)
 (global-set-key (kbd "C-c h") 'hs-hide-all)
 
-
+;; need packages/move-text/move-text.el see up
+(global-set-key (kbd "M-p") 'move-text-up)
+(global-set-key (kbd "M-n") 'move-text-down)
 
 ;; ------------- Auto mode alist ------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
@@ -348,9 +361,11 @@
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (add-hook 'tex-mode-hook 'flyspell-mode)
 
-(add-hook 'org-mode-hook 'org-toggle-pretty-entities) ;; special symbols view (as _x ^x \theta etc) 2 C-c C-x \
+ ;; special symbols view (as _x ^x \theta etc) 2 C-c C-x \
+(add-hook 'org-mode-hook 'org-toggle-pretty-entities)
 (add-hook 'org-mode-hook
-	  (lambda () (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))))
+	  (lambda () (setq org-format-latex-options
+			   (plist-put org-format-latex-options :scale 2.0))))
 
 ;; auto enable hs-minor-mode
 (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -361,6 +376,11 @@
 ;; (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
+
+;; for MaGit auto refresh after save 
+(with-eval-after-load 'magit-mode
+  (add-hook 'after-save-hook 'magit-refresh-all))
+
 
 ;; EGLOT key
 (add-hook 'eglot--managed-mode-hook
