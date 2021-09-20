@@ -73,11 +73,13 @@
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/project-el")
+(add-to-list 'load-path "~/.emacs.d/packages/move-text")
+
 
 (require 'cmake-mode)                                       ;; cmake-mode
 (require 'tre3k-templates)                                  ;; Just my templates
 (require 'project)                                          ;; need for eglot
-
+(require 'move-text)
 
 ;; -- Install with help el-get -- ;;
 ;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
@@ -337,7 +339,9 @@
 (global-set-key (kbd "C-c a") 'hs-show-all)
 (global-set-key (kbd "C-c h") 'hs-hide-all)
 
-
+;; need packages/move-text/move-text.el see up
+(global-set-key (kbd "M-p") 'move-text-up)
+(global-set-key (kbd "M-n") 'move-text-down)
 
 ;; ------------- Auto mode alist ------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
