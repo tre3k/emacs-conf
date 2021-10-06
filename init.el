@@ -360,6 +360,7 @@
 ;; ------------ Hooks ------------ ;;
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (add-hook 'tex-mode-hook 'flyspell-mode)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
  ;; special symbols view (as _x ^x \theta etc) 2 C-c C-x \
 (add-hook 'org-mode-hook 'org-toggle-pretty-entities)
@@ -377,7 +378,7 @@
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
 
-;; for MaGit auto refresh after save 
+;; for MaGit auto refresh after save
 (with-eval-after-load 'magit-mode
   (add-hook 'after-save-hook 'magit-refresh-all))
 
@@ -418,7 +419,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default)))
+   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
+ '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
