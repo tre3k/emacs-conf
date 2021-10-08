@@ -1,4 +1,6 @@
 ;; Start my options without theme (theme define in end this file)
+
+;; -------------------------- General settings: -----------------------------;;
 ;; show number lines
 (global-linum-mode 1)
 ;; hide toolbar
@@ -33,8 +35,8 @@
 (setq auto-save-list-file-name nil)
 
 ;; scroll settings
-(setq scroll-step 1)                                        ;; up-down one line
-(setq screoll-margin 10)                                    ;; 10 lines to end of window
+(setq scroll-step 1)                              ;; up-down one line
+(setq screoll-margin 10)                          ;; 10 lines to end of window
 (setq scroll-conservatively 10000)
 
 ;; hightlight breces
@@ -53,7 +55,7 @@
 (setq search-highlight t)
 
 
-;; ------------ Requery packages:  ------------ ;;
+;; -------------------------- Requery packages:  --------------------------- ;;
 ;; load paths with packages:
 (add-to-list 'load-path "~/.emacs.d/packages")
 (require 'packages)
@@ -61,31 +63,31 @@
 ;; See setup.sh
 (setq my_package_list (packages))
 (while my_package_list
-  (add-to-list 'load-path (car my_package_list))            ;; add to list "load-path" list from packages.el file
+  ;; add to list "load-path" list from packages.el file
+  (add-to-list 'load-path (car my_package_list))
   (setq my_package_list (cdr my_package_list))
   )
 
-(require 'imenu)                                            ;; imenu
-(require 'imenu-list)                                       ;; imenu-list
+(require 'imenu)                                  ;; imenu
+(require 'imenu-list)                             ;; imenu-list
 
 (require 'popup)
 (require 'fuzzy)
-(require 'auto-complete)                                    ;; auto-complete
+(require 'auto-complete)                          ;; auto-complete
 
-;; --  manual packages -- ;;
+;; ------------------------  Manual packages: ------------------------------ ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/project-el")
 (add-to-list 'load-path "~/.emacs.d/packages/move-text")
 
-
-(require 'cmake-mode)                                       ;; cmake-mode
-(require 'tre3k-templates)                                  ;; Just my templates
-(require 'project)                                          ;; need for eglot
+(require 'cmake-mode)                             ;; cmake-mode
+(require 'tre3k-templates)                        ;; Just my templates
+(require 'project)                                ;; need for eglot
 (require 'move-text)
 
-;; -- Install with help el-get -- ;;
-;(add-to-list 'load-path "~/.emacs.d/el-get")       ;; because alredy in packages/packages.el
+;; ----------------- Sync and add packages from el-get: ---------------------;;
+;; El-Get (contained in packages)
 (require 'el-get)
 
 ;; MAGIT:
@@ -97,7 +99,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
 (el-get 'sync "magit")
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
-
 (require 'magit)
 
 ;; Haskell
@@ -110,7 +111,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/py-isort")
 (require 'py-isort)
 
-
 ;; ElDoc
 (el-get 'sync "c-eldoc")
 (add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
@@ -122,16 +122,16 @@
 (require 'c-eldoc)
 (require 'eldoc-eval)
 
-;; Irony
-(el-get 'sync "irony-eldoc")
-(add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
-(el-get 'sync "flycheck-irony")
-(add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
-(el-get 'sync "irony-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
-;;(require 'irony-eldoc)
-;;(require 'flycheck-irony)
-;;(require 'irony-mode)
+;; Irony:
+;; (el-get 'sync "irony-eldoc")
+;; (add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
+;; (el-get 'sync "flycheck-irony")
+;; (add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
+;; (el-get 'sync "irony-mode")
+;; (add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
+;; (require 'irony-eldoc)
+;; (require 'flycheck-irony)
+;; (require 'irony-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
@@ -152,7 +152,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
-
 (require 'flymake-pycheckers)
 (require 'flycheck)
 (require 'cperl-mode)
@@ -164,38 +163,38 @@
 (require 'markdown-mode)
 (require 'eglot)
 
-;; Go-Lang
+;; Go-Lang:
 (el-get 'sync "go-mode")
-;(el-get 'sync "go-company")
-;(el-get 'sync "go-eldoc")
-;(el-get 'sync "go-flymake")
-;(add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
-;(add-to-list 'load-average "~/.emacs.d/el-get/go-company")
-;(add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
-;(add-to-list 'load-average "~/.emacs.d/el-get/go-flymake")
+;; (el-get 'sync "go-company")
+;; (el-get 'sync "go-eldoc")
+;; (el-get 'sync "go-flymake")
+;; (add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
+;; (add-to-list 'load-average "~/.emacs.d/el-get/go-company")
+;; (add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
+;; (add-to-list 'load-average "~/.emacs.d/el-get/go-flymake")
+(require 'go-mode)
 
-;; Docker
+;; Docker:
 (el-get 'sync "docker")
 (add-to-list 'load-path "~/.emacs.d/el-get/docker")
 (el-get 'sync "dockerfile-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/dockerfile-mode")
 (el-get 'sync "yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/yaml-mode")
-
 (require 'docker)
 (require 'dockerfile-mode)
 (require 'yaml-mode)
 (require 'docker-compose-mode)  ;; from ~/.emacs.d/packages/
 
-;; Org-mode and etc
+;; Org-mode and etc:
 (el-get 'sync "org-tree-slide") ;; presentation in org mode
 (add-to-list 'load-path "~/.emacs.d/el-get/org-tree-slide")
 (require 'org-tree-slide)
 
-;; AUCTeX
-;;(el-get 'sync "auctex")
-;;(add-to-list 'load-path "~/.emacs.d/el-get/auctex")
-;;(require 'auctex)
+;; AUCTeX:
+;; (el-get 'sync "auctex")
+;; (add-to-list 'load-path "~/.emacs.d/el-get/auctex")
+;; (require 'auctex)
 
 ;; NAV:
 (el-get 'sync "nav")
@@ -206,7 +205,7 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
 (require 'pkgbuild-mode)
 
-;; LUA mode
+;; LUA mode:
 (el-get 'sync "s")
 (el-get 'sync "f")
 (add-to-list 'load-path "~/.emacs.d/el-get/s")
@@ -220,29 +219,27 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/flymake-lua")
 (add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
-
 (require 'lua-mode)
 (require 'flymake-lua)
 (require 'company-lua)
 
-;; Bookmark+
-(el-get 'sync "bookmark+")
-(add-to-list 'load-path "~/.emacs.d/el-get/bookmark+")
-(require 'bookmark+)
-
+;; Bookmark+:
 ;; C-x r m - set bookmark
 ;; C-x j j - jump to bookmark
 ;; C-x r l - list bookmark (
 ;;                           o - open in other buffer
 ;;                           d - mark for delete,  x - accept
 ;;                           r - rename)
+(el-get 'sync "bookmark+")
+(add-to-list 'load-path "~/.emacs.d/el-get/bookmark+")
+(require 'bookmark+)
 
-
-;; GnuPLOT
+;; GnuPLOT:
 (el-get' sync "gnuplot-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
+(require 'gnuplot)
 
-;; LaTex
+;; LaTex:
 (el-get 'sync "magic-latex-buffer")
 (add-to-list 'load-path "~/.emacs.d/el-get/magic-latex-buffer")
 (el-get 'sync "company-math")
@@ -250,13 +247,13 @@
 (require 'magic-latex-buffer)
 (require 'company-math)
 
-(setq TeX-parse-self t) ; Enable parse on load.
-(setq TeX-auto-save t) ; Enable parse on save.
-(setq LaTeX-parse-self t) ; Enable parse on load.
-(setq LaTeX-auto-save t) ; Enable parse on save.
+(setq TeX-parse-self t)                           ; Enable parse on load.
+(setq TeX-auto-save t)                            ; Enable parse on save.
+(setq LaTeX-parse-self t)                         ; Enable parse on load.
+(setq LaTeX-auto-save t)                          ; Enable parse on save.
 
 
-;; ------------ Start packages ------------ ;;
+;; ---------------------------- Start packages: ---------------------------- ;;
 
 ;; enable auto-complete-mode for all buffers
 (global-auto-complete-mode)
@@ -268,26 +265,25 @@
 (set-face-attribute 'bmkp-light-non-autonamed nil
 		    :background "#225222")
 
-;; ------------- Agenda conf -----------------------;;
-
+;; ---------------------------- Agenda conf: --------------------------------;;
 (setq org-agenda-files '("~/org/main.org"
 			 "~/org/private.org"))
 
-;; -------------- Input method ---------------------;;
+;; --------------------------- Input method: --------------------------------;;
 (set-input-method "russian-typewriter")
 (toggle-input-method)
 
-;; ------------- Calendar localization  ------------;;
+;; ------------------- Calendar localization (russian):  --------------------;;
 (setq calendar-week-start-day 1
-          calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда"
-                                   "Четверг" "Пятница" "Суббота"]
-          calendar-day-header-array ["Вс" "Пн" "Вт" "Ср" "Чт" "Пт" "Сб"]
-          calendar-day-abbrev-array ["Вск" "Пнд" "Втр" "Сре" "Чтв" "Птн" "Суб"]
-          calendar-month-name-array ["Январь" "Февраль" "Март" "Апрель" "Май"
-                                     "Июнь" "Июль" "Август" "Сентябрь"
-                                     "Октябрь" "Ноябрь" "Декабрь"]
-          calendar-month-abbrev-array ["Янв" "Фев" "Мар" "Апр" "Май" "Июн"
-				       "Июл" "Авг" "Сен" "Окт" "Ноя" "Дек"])
+      calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда"
+                               "Четверг" "Пятница" "Суббота"]
+      calendar-day-header-array ["Вс" "Пн" "Вт" "Ср" "Чт" "Пт" "Сб"]
+      calendar-day-abbrev-array ["Вск" "Пнд" "Втр" "Сре" "Чтв" "Птн" "Суб"]
+      calendar-month-name-array ["Январь" "Февраль" "Март" "Апрель" "Май"
+                                 "Июнь" "Июль" "Август" "Сентябрь"
+                                 "Октябрь" "Ноябрь" "Декабрь"]
+      calendar-month-abbrev-array ["Янв" "Фев" "Мар" "Апр" "Май" "Июн"
+				   "Июл" "Авг" "Сен" "Окт" "Ноя" "Дек"])
 
 (setq calendar-holidays
       `(
@@ -301,31 +297,36 @@
 	(holiday-fixed 5 9 "День Победы")
 	(holiday-fixed 6 12 "День России")
 	(holiday-fixed 10 4 "День Народного единства")
-      ))
+	))
 
-;; ------------ Org mode settings ----------------- ;;
-(setq org-hide-emphasis-markers t) ;; скрывает всякие ** / / + + и.т.д
-
+;; ------------------------ Org mode settings: ----------------------------- ;;
 ;; Hot keys
 ;; C-c C-x C-l org-latex-preview
+;; C-c . <active date>
+;; C-c ! [inactive date]
 
-;; ------------ Bind keys:  ------------ ;;
+;; Hide some ** / / + + etc
+(setq org-hide-emphasis-markers t)
+
+
+;; ---------------------------- Bind keys:  -------------------------------- ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
-(global-set-key (kbd "C-x c") 'cua-mode)                    ;; block selected
+(global-set-key (kbd "C-x c") 'cua-mode)
+(global-set-key (kbd "C-x r") 'rectangle-mark-mode)
 (global-set-key (kbd "C-x a") 'company-complete-common)
+(global-set-key (kbd "C-x w") 'whitespace-mode)
+
 (global-set-key (kbd "C-u") 'revert-buffer)
 (global-set-key (kbd "C-i") 'indent-region)
 
 (global-set-key (kbd "<C-tab>") 'company-complete)
-(global-set-key (kbd "C-x w") 'whitespace-mode)
 
-
-(global-set-key (kbd "<f4>") 'ff-find-other-file)           ;; toggle bitwin header and source file
-
-(global-set-key (kbd "<f3>") 'query-replace)                ;; find and replace
-;(global-set-key (kbd "<f6>") 'imenu)
-(global-set-key (kbd "<f7>") 'imenu-list)
+;; find and replace
+(global-set-key (kbd "<f3>") 'query-replace)
+;; toggle bitwin header and source file
+(global-set-key (kbd "<f4>") 'ff-find-other-file)
 (global-set-key (kbd "<f6>") 'imenu-list-smart-toggle)
+(global-set-key (kbd "<f7>") 'imenu-list)
 (global-set-key (kbd "<f8>") 'compile)
 (global-set-key (kbd "<f9>") 'recompile)
 
@@ -339,6 +340,7 @@
 (global-set-key (kbd "M-g p") 'magit-push)
 (global-set-key (kbd "M-g u") 'magit-pull)
 (global-set-key (kbd "M-g o") 'magit-show-commit)
+(global-set-key (kbd "M-g d") 'magit-diff-unstaged)
 
 ;; for tab-bar-mode
 (global-set-key (kbd "<C-M-tab>") 'tab-bar-switch-to-next-tab)
@@ -352,17 +354,17 @@
 (global-set-key (kbd "M-p") 'move-text-up)
 (global-set-key (kbd "M-n") 'move-text-down)
 
-;; ------------- Auto mode alist ------------- ;;
+;; ------------------------ Auto mode alist: ------------------------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.plt\\'" . (lambda() (gnuplot-mode))))
 
-;; ------------ Hooks ------------ ;;
+;; ------------------------------ Hooks: ----------------------------------- ;;
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (add-hook 'tex-mode-hook 'flyspell-mode)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
- ;; special symbols view (as _x ^x \theta etc) 2 C-c C-x \
+ ;; special symbols view in org mode (as _x ^x \theta etc) 2 C-c C-x \
 (add-hook 'org-mode-hook 'org-toggle-pretty-entities)
 (add-hook 'org-mode-hook
 	  (lambda () (setq org-format-latex-options
@@ -382,7 +384,6 @@
 (with-eval-after-load 'magit-mode
   (add-hook 'after-save-hook 'magit-refresh-all))
 
-
 ;; EGLOT key
 (add-hook 'eglot--managed-mode-hook
 	  (lambda ()
@@ -398,7 +399,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ------------- TAGS -------------- ;;
+;; -------------------------------- TAGS: ---------------------------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
 ;; M-. переход от декларации к функции/переменной
 ;; M-, переход от функции/переменной к декларации
@@ -410,7 +411,7 @@
 ;;   (eshell-command
 ;;    (format "find %s -type f -name \"*.[ch]\" | etags -" dir-name)))
 
-;; ------------ End of my editing ------------ ;;
+;; -------------------------- End of my editing: --------------------------- ;;
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
