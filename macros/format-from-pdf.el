@@ -1,0 +1,31 @@
+(defun format-from-pdf ()
+  "remove newlines and newlines from point"
+  (interactive)
+  (save-restriction
+    (narrow-to-region (point) (mark))
+    (goto-char (point-min))
+    (while (search-forward "\n" nil t)
+      (replace-match "" nil t)
+      )
+    (goto-char (point-min))
+    (while (search-forward ". " nil t)
+      (replace-match ".\n" nil t)
+      )
+
+    (goto-char (point-min))
+    (while (search-forward "≈" nil t)
+      (replace-match "\\approx" nil t)
+      )
+    (goto-char (point-min))
+    (while (search-forward "±" nil t)
+      (replace-match "\\pm" nil t)
+      )
+   (goto-char (point-min))
+    (while (search-forward "−" nil t)
+      (replace-match "-" nil t)
+      )
+    )
+  )
+
+
+(provide 'format-from-pdf)
