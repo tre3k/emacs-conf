@@ -90,6 +90,18 @@
 ;; El-Get (contained in packages)
 (require 'el-get)
 
+;; Project
+(el-get 'sync "project-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/project-mode")
+(el-get 'sync "project-explorer")
+(add-to-list 'load-path "~/.emacs.d/el-get/project-explorer")
+(el-get 'sync "project-buffer-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/project-buffer-mode")
+(require 'project-mode)
+(require 'project-explorer)
+(require 'project-buffer-mode)
+
+
 ;; MAGIT:
 (el-get 'sync "dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
