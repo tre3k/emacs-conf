@@ -162,6 +162,8 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
 (el-get 'sync "markdown-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
+(el-get 'sync "markdown-preview-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/markdown-preview-mode")
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
 (require 'flymake-pycheckers)
@@ -173,6 +175,7 @@
 (require 'company-c-headers)
 (require 'yasnippet)
 (require 'markdown-mode)
+(require 'markdown-preview-mode)
 (require 'eglot)
 
 ;; Go-Lang:
@@ -432,7 +435,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
+   '("e7c57d7a157332fbae04a3c94bb4519b8c165185c553069d445109237f4e942b" "5d60ade0b86df38cea6709287ad27802f9b43e3ed73f3cfec34b2bc2d2dc71e7" "b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
