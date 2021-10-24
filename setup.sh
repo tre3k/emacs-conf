@@ -11,6 +11,7 @@ PACKAGES_GIT_URL=(
     "https://github.com/auto-complete/popup-el"
     "https://github.com/joaotavora/eglot"
     "https://github.com/meqif/docker-compose-mode"
+    "https://github.com/mickeynp/ligature.el"
 )
 PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/el-get
@@ -20,6 +21,7 @@ PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/packages/popup-el
     ${CURR_DIR}/packages/eglot
     ${CURR_DIR}/packages/docker-compose-mode
+    ${CURR_DIR}/packages/ligature-el
 )
 
 
@@ -32,7 +34,7 @@ function f_init(){
     echo "  (interactive)" >> ${CURR_DIR}/packages/packages.el
     echo "  '(" >> ${CURR_DIR}/packages/packages.el
 
-    
+
     mkdir -p ${CURR_DIR}/packages
     index=0
     for url in ${PACKAGES_GIT_URL[*]}

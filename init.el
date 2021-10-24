@@ -74,6 +74,7 @@
 (require 'popup)
 (require 'fuzzy)
 (require 'auto-complete)                          ;; auto-complete
+(require 'ligature)
 
 ;; ------------------------  Manual packages: ------------------------------ ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
@@ -314,6 +315,27 @@
 	(holiday-fixed 10 4 "День Народного единства")
 	))
 
+;; ------------------------- Ligature settings ----------------------------- ;;
+;; Enable the www ligature in every possible major mode
+(ligature-set-ligatures 't '("www"))
+
+;; Enable ligatures in programming modes
+(ligature-set-ligatures 'prog-mode '("</" "</>" "/>" "~-" "~-" "~@" "<~" "<~>"
+				     "<~~" "~>" "~~" "~~>" ">=" "<=" "<!--"
+				     "##" "###" "####" "|-" "-|" "|->" "<-|"
+				     ">-|" "|-<" "|=" "|=>" ">-" "<-" "<--"
+				     "-->" "->" "-<" ">->" ">>-" "<<-" "<->"
+				     "->>" "-<<" "<-<" "==>" "=>" "=/=" "!=="
+				     "!=" "<==" ">>=" "=>>" ">=>" "<=>" "<=<"
+				     "<<=" "=<<" ".-" ".=" "=:=" "=!=" "=="
+				     "===" "::" ":=" ":>" ":<" ">:" ";;" "<|"
+				     "<|>" "|>" "<>" "<$" "<$>" "$>" "<+" "<+>"
+				     "+>" "?=" "/=" "/==" "/\\" "\\/" "__" "&&"
+				     "++" "+++"))
+
+
+(global-ligature-mode 't)
+
 ;; ------------------------ Org mode settings: ----------------------------- ;;
 ;; Hot keys
 ;; C-c C-x C-l org-latex-preview
@@ -435,7 +457,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("e7c57d7a157332fbae04a3c94bb4519b8c165185c553069d445109237f4e942b" "5d60ade0b86df38cea6709287ad27802f9b43e3ed73f3cfec34b2bc2d2dc71e7" "b285d537629712a74ab41b1db6b5bd42a446e7835fdd3180bc3eaaa279e6f276" "994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
+   '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
