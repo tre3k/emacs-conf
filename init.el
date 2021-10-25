@@ -79,7 +79,6 @@
 ;; ------------------------  Manual packages: ------------------------------ ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
-(add-to-list 'load-path "~/.emacs.d/packages/project-el")
 (add-to-list 'load-path "~/.emacs.d/packages/move-text")
 
 (require 'cmake-mode)                             ;; cmake-mode
@@ -458,6 +457,7 @@
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
+ '(package-selected-packages '(projectile))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
