@@ -280,10 +280,6 @@
 (set-face-attribute 'bmkp-light-non-autonamed nil
 		    :background "#225222")
 
-;; ---------------------------- Agenda conf: --------------------------------;;
-(setq org-agenda-files '("~/org/main.org"
-			 "~/org/private.org"))
-
 ;; --------------------------- Input method: --------------------------------;;
 (set-input-method "russian-typewriter")
 (toggle-input-method)
@@ -337,12 +333,29 @@
 
 ;; ------------------------ Org mode settings: ----------------------------- ;;
 ;; Hot keys
-;; C-c C-x C-l org-latex-preview
-;; C-c . <active date>
-;; C-c ! [inactive date]
+;; C-c C-x C-l              - org-latex-preview
+;; C-c .                    - <active date>
+;; C-c !                    - [inactive date]
+;; C-c C-c                  - toggle checkboks, tags on title
+;; C-c C-o                  - open
+;; C-c C-t                  - TODO/DONE
+;; C-c C-d                  - DEADLINE
+;; C-c C-s                  - SHEDULE
+;; C-c C-z                  - add note
+;; C-c C-x C-v              - org-toggle-inline-images
+;; C-c C-l                  - link
 
 ;; Hide some ** / / + + etc
 (setq org-hide-emphasis-markers t)
+;; List org files for agenda
+(setq org-agenda-files '("~/org/main.org"
+			 "~/journal/private.org"
+			 "~/journal/journal.org"))
+
+;; TODO/DONE/DECLARATE/CANCELED
+(setq org-todo-keywords
+      '((sequence "TODO" "VERIFY" "|" "DONE" "DELEGATED" "CANCELED"))
+      )
 
 
 ;; ---------------------------- Bind keys:  -------------------------------- ;;
@@ -429,11 +442,16 @@
 (add-hook 'latex-mode-hook 'reftex-mode)
 (add-hook 'bibtex-mode-hook 'reftex-mode)
 
+;; show fill column indicator in programming mode and org-mode
+(add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
+(add-hook 'org-mode-hook 'display-fill-column-indicator)
+
 ;; ElDoc C/C++
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
+
 
 ;; -------------------------------- TAGS: ---------------------------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
