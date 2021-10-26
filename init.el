@@ -83,24 +83,16 @@
 
 (require 'cmake-mode)                             ;; cmake-mode
 (require 'tre3k-templates)                        ;; Just my templates
-(require 'project)                                ;; need for eglot
 (require 'move-text)
 
 ;; ----------------- Sync and add packages from el-get: ---------------------;;
 ;; El-Get (contained in packages)
 (require 'el-get)
+;; ELPA
+(require 'package)
 
 ;; Project
-(el-get 'sync "project-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/project-mode")
-(el-get 'sync "project-explorer")
-(add-to-list 'load-path "~/.emacs.d/el-get/project-explorer")
-(el-get 'sync "project-buffer-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/project-buffer-mode")
-(require 'project-mode)
-(require 'project-explorer)
-(require 'project-buffer-mode)
-
+(package-install 'project)
 
 ;; MAGIT:
 (el-get 'sync "dash")
@@ -114,9 +106,7 @@
 (require 'magit)
 
 ;; Haskell
-(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
-(el-get 'sync "haskell-mode")
-(require 'haskell-mode)
+(package-install 'haskell-mode)
 
 ;; Py-isort
 (el-get 'sync "py-isort")
@@ -146,10 +136,9 @@
 ;; (require 'irony-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
+(package-install 'flymake)
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
-(el-get 'sync "flymake")
-(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 (el-get 'sync "flymake-pycheckers")
 (add-to-list 'load-path "~/.emacs.d/el-get/flymake-pycheckers")
 (el-get 'sync "json-rpc")
@@ -475,7 +464,7 @@
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
- '(package-selected-packages '(projectile))
+ '(package-selected-packages '(flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
