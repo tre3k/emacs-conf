@@ -275,6 +275,7 @@
 		    :background "#225222")
 
 (control-mode-default-setup)
+(tab-bar-mode)
 
 ;; --------------------------- Input method: --------------------------------;;
 (set-input-method "russian-typewriter")
@@ -471,7 +472,7 @@
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
+   '("888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" default))
  '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces

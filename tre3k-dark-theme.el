@@ -46,6 +46,10 @@
  '(lazy-highlight ((t (:foreground "#a0a8b0" :background "#384048"))))
  '(match ((t (:background "RoyalBlue1"))))
  '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch))))))
+ '(query-replace ((t (:inherit (isearch)))))
+ '(tab-bar ((t (:background "#444444" :foreground "#f6f3e8" :family "Victor Mono SemiBold"))))
+ '(tab-bar-tab ((t (:inherit tab-bar :background "#343434"))))
+ '(tab-bar-tab-inactive ((t (:background "#444444"))))
+ )
 
 (provide-theme 'tre3k-dark)
