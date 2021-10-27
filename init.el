@@ -227,6 +227,11 @@
 (require 'flymake-lua)
 (require 'company-lua)
 
+;; Control mode:
+(el-get 'sync "control-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/control-mode")
+(require 'control-mode)
+
 ;; Bookmark+:
 ;; C-x r m - set bookmark
 ;; C-x j j - jump to bookmark
@@ -268,6 +273,8 @@
 
 (set-face-attribute 'bmkp-light-non-autonamed nil
 		    :background "#225222")
+
+(control-mode-default-setup)
 
 ;; --------------------------- Input method: --------------------------------;;
 (set-input-method "russian-typewriter")
@@ -315,7 +322,8 @@
 				     "===" "::" ":=" ":>" ":<" ">:" ";;" "<|"
 				     "<|>" "|>" "<>" "<$" "<$>" "$>" "<+" "<+>"
 				     "+>" "?=" "/=" "/==" "/\\" "\\/" "__" "&&"
-				     "++" "+++"))
+				     "++" "+++"
+				     ))
 
 
 (global-ligature-mode 't)
@@ -343,14 +351,13 @@
 
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
-      '((sequence "TODO" "VERIFY" "|" "DONE" "DELEGATED" "CANCELED"))
+      '((sequence "TODO" "VERIFY" "LOW" "|" "DONE" "DELEGATED" "CANCELED"))
       )
 
 
 ;; ---------------------------- Bind keys:  -------------------------------- ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-x c") 'cua-mode)
-(global-set-key (kbd "C-x r") 'rectangle-mark-mode)
 (global-set-key (kbd "C-x a") 'company-complete-common)
 (global-set-key (kbd "C-x w") 'whitespace-mode)
 
@@ -433,7 +440,7 @@
 
 ;; show fill column indicator in programming mode and org-mode
 (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
-(add-hook 'org-mode-hook 'display-fill-column-indicator)
+(add-hook 'org-mode-hook 'display-fill-column-indicator-mode)
 
 ;; ElDoc C/C++
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
@@ -461,10 +468,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("994f6d7b526f1936f6eed424f5e605406cee370061f1ce5ed3f2d01b5a5bccbf" default))
- '(package-selected-packages '(flymake haskell-mode))
+ '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
