@@ -470,9 +470,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-dark))
+ '(custom-enabled-themes '(vim-colors))
  '(custom-safe-themes
-   '("888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" default))
+   '("e0501494acc294e4909ab342c7c85ef959095d8a8bf9109d1007286683474cb2" "03f28a4e25d3ce7e8826b0a67441826c744cbf47077fb5bc9ddb18afe115005f" "888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" "8123b6f985e34f860e2ed54a4d9741eab375bdd96bc93664ec70c2e276a17c83" default))
  '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
