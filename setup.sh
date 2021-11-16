@@ -57,11 +57,8 @@ function f_init(){
     echo "Done."
 
     echo "for work eglot you need LSP (ccls - for c/c++ or clangd) (pyls - for python)"
-    read -r -p "do you want install java LSP (for eglot) [y/N] " response
-    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-    then
-	install_java_lps
-    fi
+    echo "for java: you need build https://github.com/eclipse/eclipse.jdt.ls"
+    echo "  and add to CLASSPATH path to target/repository"
 }
 
 function install_java_lps(){
