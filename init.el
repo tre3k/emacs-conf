@@ -113,6 +113,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/py-isort")
 (require 'py-isort)
 
+;; Py-yapf (For PEP8 python)
+(el-get 'sync "py-yapf")
+(add-to-list 'load-path "~/.emacs.d/el-get/py-yapf")
+(require 'py-yapf)
+
 ;; ElDoc
 (el-get 'sync "c-eldoc")
 (add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
