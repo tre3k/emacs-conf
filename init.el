@@ -106,7 +106,9 @@
 (require 'magit)
 
 ;; Haskell
-(package-install 'haskell-mode)
+(el-get 'sync "haskell-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
+
 
 ;; Py-isort
 (el-get 'sync "py-isort")
@@ -141,7 +143,8 @@
 ;; (require 'irony-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
-(package-install 'flymake)
+(el-get 'sync "flymake")
+(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
 (el-get 'sync "flymake-pycheckers")
