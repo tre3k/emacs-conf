@@ -54,7 +54,8 @@
 ;; highlight of search
 (setq search-highlight t)
 
-
+;; do-not show some warnings
+(setq warning-minimum-level :emergency)
 ;; -------------------------- Requery packages:  --------------------------- ;;
 ;; load paths with packages:
 (add-to-list 'load-path "~/.emacs.d/packages")
@@ -126,16 +127,6 @@
 (require 'c-eldoc)
 (require 'eldoc-eval)
 
-;; Irony:
-;; (el-get 'sync "irony-eldoc")
-;; (add-to-list 'load-path "~/.emacs.d/el-get/irony-eldoc")
-;; (el-get 'sync "flycheck-irony")
-;; (add-to-list 'load-path "~/.emacs.d/el-get/flycheck-irony")
-;; (el-get 'sync "irony-mode")
-;; (add-to-list 'load-path "~/.emacs.d/el-get/irony-mode")
-;; (require 'irony-eldoc)
-;; (require 'flycheck-irony)
-;; (require 'irony-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flymake")
