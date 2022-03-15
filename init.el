@@ -105,11 +105,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
 (require 'magit)
 
-;; Haskell
-(el-get 'sync "haskell-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
-
-
 ;; Py-isort
 (el-get 'sync "py-isort")
 (add-to-list 'load-path "~/.emacs.d/el-get/py-isort")
