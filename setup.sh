@@ -12,6 +12,7 @@ PACKAGES_GIT_URL=(
     "https://github.com/joaotavora/eglot"
     "https://github.com/meqif/docker-compose-mode"
     "https://github.com/mickeynp/ligature.el"
+    "https://gitlab.com/protesilaos/pulsar"
 )
 PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/el-get
@@ -22,6 +23,7 @@ PACKAGES_LOCAL_URL=(
     ${CURR_DIR}/packages/eglot
     ${CURR_DIR}/packages/docker-compose-mode
     ${CURR_DIR}/packages/ligature-el
+    ${CURR_DIR}/packages/pulsar
 )
 
 

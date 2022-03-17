@@ -76,6 +76,7 @@
 (require 'fuzzy)
 (require 'auto-complete)                          ;; auto-complete
 (require 'ligature)
+(require 'pulsar)
 
 ;; ------------------------  Manual packages: ------------------------------ ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
@@ -85,6 +86,9 @@
 (require 'cmake-mode)                             ;; cmake-mode
 (require 'tre3k-templates)                        ;; Just my templates
 (require 'move-text)
+
+;; -------------------------- Pulsar setup ----------------------------------;;
+(pulsar-setup)
 
 ;; ----------------- Sync and add packages from el-get: ---------------------;;
 ;; El-Get (contained in packages)
