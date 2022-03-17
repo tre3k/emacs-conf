@@ -96,6 +96,8 @@
 (package-install 'project)
 
 ;; MAGIT:
+(add-to-list 'el-get-sources
+	     '(:name magit :info "docs"))
 (el-get 'sync "dash")
 (add-to-list 'load-path "~/.emacs.d/el-get/dash")
 (el-get 'sync "with-editor")
