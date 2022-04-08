@@ -135,12 +135,8 @@
 
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
-(el-get 'sync "flymake")
-(add-to-list 'load-path "~/.emacs.d/el-get/flymake")
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
-(el-get 'sync "flymake-pycheckers")
-(add-to-list 'load-path "~/.emacs.d/el-get/flymake-pycheckers")
 (el-get 'sync "json-rpc")
 (add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
 (el-get 'sync "ac-company")
@@ -155,7 +151,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/markdown-preview-mode")
 (el-get 'sync "cperl-mode")
 (add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
-(require 'flymake-pycheckers)
 (require 'flycheck)
 (require 'cperl-mode)
 (require 'flycheck)
@@ -218,13 +213,10 @@
 (require 'f)
 
 (el-get 'sync "lua-mode")
-(el-get 'sync "flymake-lua")
 (el-get 'sync "company-lua")
 (add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/flymake-lua")
 (add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
 (require 'lua-mode)
-(require 'flymake-lua)
 (require 'company-lua)
 
 ;; Control mode:
@@ -347,8 +339,10 @@
 (setq org-hide-emphasis-markers t)
 ;; List org files for agenda
 (setq org-agenda-files '("~/org/main.org"
-			 "~/journal/private.org"
-			 "~/journal/journal.org"))
+			 ;; "~/journal/private.org"
+			 ;;"~/journal/journal.org"
+			 )
+      )
 
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
