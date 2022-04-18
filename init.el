@@ -464,9 +464,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-dark))
+ '(custom-enabled-themes '(tre3k-light))
  '(custom-safe-themes
-   '("888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" default))
+   '("888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" "2e582258058f1477b9992d4e174fdbbdd7dac60e1b01efc5fde2a0381dad4b7c" default))
  '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces

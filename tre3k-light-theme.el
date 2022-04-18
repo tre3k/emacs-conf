@@ -38,13 +38,26 @@
       ;; Escape glyph
       (escape_glyph_color "#846642")
 
+      ;;Tab bar colors
+      (tab-bar-background "#d5d6dd")
+      (tab-bar-tab-background "#78937a")
+
+      ;; Mode line
+      (mode_line_foreground "#ffffff")
+      (mode_line_background "#78937a")
+      (mode_line_inactive_foreground "#939191")
+      (mode_line_inactive_background "#e6e4e4")
+
       ;; Syntax color scheme
       (font_lock_comment_color "#797b82")
       (font_lock_builtin_color "#476f96")
-      (font_lock_constan_color "#1e8d73")
-      (font_lock_variable_name_color "#8d453e")
-      (font_lock_string_color "#97362c")
-      (font_lock_keyword_color "#2b2d9e")
+      (font_lock_constan_color "#17735d")
+      (font_lock_variable_color "#8d453e")
+      (font_lock_string_color "#b33636")
+      (font_lock_keyword_color "#5142a2")
+      (font_lock_function_color "#9b0685")
+      (font_lock_warning_color "#d62000")
+      (font_lock_type_color "#21586f")
       )
 
 
@@ -70,6 +83,8 @@
 		       :weight bold
 		       :foreground ,escape_glyph_color
 		       ))))
+
+
 
    ;; Set syntax color scheme
    `(font-lock-builtin-face ((t (
@@ -97,27 +112,88 @@
 
    `(font-lock-variable-name-face ((t (
 				       :foreground
-				       ,font_lock_variable_name_color
+				       ,font_lock_variable_color
 				       ))))
 
    `(font-lock-doc-face ((t (
 			     :foreground ,font_lock_comment_color
 			     ))))
-
+   `(font-lock-doc-markup-face (( t (
+				     :weight bold
+				     :foreground ,font_lock_comment_color
+				     ))))
    `(font-lock-string-face ((t (
 				:slant italic
 				:foreground ,font_lock_string_color
 				))))
    `(font-lock-keyword-face ((t (
 				 :weight bold
-					 :foreground ,font_lock_keyword_color
-					 ))))
-
+				 :foreground ,font_lock_keyword_color
+				 ))))
+   `(font-lock-function-name-face ((t (
+				       :foreground ,font_lock_function_color
+				       ))))
+   `(font-lock-negation-char-face ((t nil)))
+   `(font-lock-preprocessor-face ((t (
+				      :inherit (font-lock-builtin-face)
+				      ))))
+   `(font-lock-regexp-grouping-backslash ((t (
+					      :inherit (bold)
+					      ))))
+   `(font-lock-regexp-grouping-construct ((t (
+					      :inherit (bold)
+					      ))))
+   `(font-lock-warning-face ((t (
+				 :foreground
+				 ))))
+   `(font-lock-type-face ((t (
+			      :weight bold
+			      :foreground ,font_lock_type_color
+			      ))))
 
    ;; Interface
+   ;;`(header-line ((t (:foreground "#e7f6da" :background "#303030"))))
+   ;; Tab bar
+   `(tab-bar ((t (
+		  :background ,tab-bar-background
+		  :foreground "#ffffff"
+		  :family "Victor Mono SemiBold"
+		  ))))
+   `(tab-bar-tab ((t (
+		      :inherit tab-bar
+		      ;;:box (:line-width 3 :color ,tab-bar-tab-background)
+		      :background ,tab-bar-tab-background
+		      ))))
+   `(tab-bar-tab-inactive ((t (
+			       :foreground ,foreground_color
+			       :background ,tab-bar-background
+			       ))))
+
+   ;; Minibuffer
+   `(minibuffer-prompt ((t (
+			    :weight bold
+			    :foreground ,foreground_color
+			    ))))
+   ;; Mode line
+   `(mode-line ((t (
+		    :foreground ,mode_line_foreground
+		    :background ,mode_line_background))))
+   `(mode-line-buffer-id ((t (:weight bold))))
+   `(mode-line-emphasis ((t (:weight bold))))
+   `(mode-line-highlight ((t (
+			      :box (
+				    :line-width 2
+				    :color ,tab-bar-tab-background
+				    :style nil
+				    )
+			      ))))
+   `(mode-line-inactive ((t (
+			     :foreground ,mode_line_inactive_foreground
+			     :background ,mode_line_inactive_background
+			     ))))
+
    )
   )
-
 
 
 (provide-theme 'tre3k-light)
