@@ -254,6 +254,11 @@
 (setq LaTeX-auto-save t)                          ; Enable parse on save.
 
 
+;; Vimrc:
+(el-get 'sync "vimrc-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/vimrc-mode")
+(require 'vimrc-mode)
+
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
 ;; enable auto-complete-mode for all buffers
