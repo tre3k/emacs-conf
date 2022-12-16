@@ -5,8 +5,8 @@ ido.last
 
 /eshell/
 /el-get/
-/packages/
 /games/
+/packages/*
 /url/
 /elpa/
 /auto-save-list/
@@ -16,3 +16,7 @@ ido.last
 /eln-cache/
 
 projects
+
+!/packages/cmake-mode
+!/packages/move-text
+!/packages/tre3k-templates
