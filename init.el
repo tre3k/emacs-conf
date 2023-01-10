@@ -448,6 +448,9 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Calendar
+(add-hook 'calendar-today-visible-hook 'calendar-mark-today)
+(add-hook 'calendar-today-visible-hook 'calendar-mark-holidays)
 
 ;; -------------------------------- TAGS: ---------------------------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
@@ -469,9 +472,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-light))
+ '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("888f463c07d3edf908bcec2fefaafa6ce62b955d8b8b4a24e5e23fbd5ceacc7a" "2e582258058f1477b9992d4e174fdbbdd7dac60e1b01efc5fde2a0381dad4b7c" default))
+   '("c559f81e30202625dacf1b22a88a23e547879ac017c829c4bfb6737b41a5516e" default))
  '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces

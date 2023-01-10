@@ -50,6 +50,7 @@
  '(tab-bar ((t (:background "#444444" :foreground "#f6f3e8" :family "Victor Mono SemiBold"))))
  '(tab-bar-tab ((t (:inherit tab-bar :background "#343434"))))
  '(tab-bar-tab-inactive ((t (:background "#444444"))))
+ '(calendar-today  ((t (:background "#24613e"))))
  )
 
 (provide-theme 'tre3k-dark)
