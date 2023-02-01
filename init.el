@@ -352,10 +352,10 @@
 ;; Hide some ** / / + + etc
 (setq org-hide-emphasis-markers t)
 ;; List org files for agenda
-;; (setq org-agenda-files '("add your org files"
-;;                          "here for the agenda"
-;; 			 )
-;;       )
+(setq org-agenda-files '("~/org/main.org"
+			 "~/org/private.org"
+			 )
+      )
 
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
