@@ -133,6 +133,10 @@
 (require 'c-eldoc)
 (require 'eldoc-eval)
 
+;; Haskell:
+(el-get 'sync "haskell-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
+(require 'haskell-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
@@ -474,7 +478,6 @@
  '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
    '("c559f81e30202625dacf1b22a88a23e547879ac017c829c4bfb6737b41a5516e" default))
- '(package-selected-packages '(project flymake haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
