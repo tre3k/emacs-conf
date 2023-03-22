@@ -417,6 +417,8 @@
 (add-hook 'org-mode-hook
 	  (lambda () (setq org-format-latex-options
 			   (plist-put org-format-latex-options :scale 2.0))))
+(add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'visual-line-mode)
 
 ;; auto enable hs-minor-mode
 (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -441,9 +443,8 @@
 (add-hook 'latex-mode-hook 'reftex-mode)
 (add-hook 'bibtex-mode-hook 'reftex-mode)
 
-;; show fill column indicator in programming mode and org-mode
+;; show fill column indicator in programming mode
 (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
-(add-hook 'org-mode-hook 'display-fill-column-indicator-mode)
 
 ;; ElDoc C/C++
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
