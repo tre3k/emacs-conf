@@ -343,6 +343,11 @@
 ;; C-c C-z                  - add note
 ;; C-c C-x C-v              - org-toggle-inline-images
 ;; C-c C-l                  - link
+;; M-left/rigt/up/down      - move row/columns in table
+;; C-c C-x C-i              - start clock
+;; C-c C-x C-o              - clock out
+;; M-x org-clock-report     - create report about work time
+
 
 ;; Hide some ** / / + + etc
 (setq org-hide-emphasis-markers t)
