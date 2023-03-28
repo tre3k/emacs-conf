@@ -357,6 +357,10 @@
       '((sequence "TODO" "VERIFY" "LOW" "|" "DONE" "DELEGATED" "CANCELED"))
       )
 
+;; Enable some language for #+BEGIN_SRC evaluation block code
+(org-babel-do-load-languages 'org-babel-load-languages
+ '((emacs-lisp . nil) (C . t) (python . t) (gnuplot . t)))
+
 
 ;; ---------------------------- Bind keys:  -------------------------------- ;;
 (global-set-key (kbd "C-x t") 'toggle-truncate-lines)
