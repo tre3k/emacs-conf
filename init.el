@@ -2,7 +2,7 @@
 
 ;; -------------------------- General settings: -----------------------------;;
 ;; show number lines
-(global-linum-mode 1)
+(global-display-line-numbers-mode t)
 ;; hide toolbar
 (tool-bar-mode 0)
 ;; disable menu
