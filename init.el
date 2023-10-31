@@ -12,6 +12,9 @@
 ;; disable blink cursor
 (blink-cursor-mode 0)
 
+;; enable electic pair mode
+(electric-pair-mode 1)
+
 ;; vertival line 80 charset
 (setq-default display-fill-column-indicator-column 79)
 
