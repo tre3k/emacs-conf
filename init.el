@@ -141,6 +141,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
 (require 'haskell-mode)
 
+;; Julia
+(package-install 'julia-mode)
+(add-to-list 'load-path "~/.emacs.d/elpa/julia-mode-0.4")
+(require 'julia-mode)
+
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
 (add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
