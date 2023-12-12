@@ -141,10 +141,6 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
 (require 'haskell-mode)
 
-;; Julia
-(package-install 'julia-mode)
-(add-to-list 'load-path "~/.emacs.d/elpa/julia-mode-0.4")
-(require 'julia-mode)
 
 ;; EGLOT: (dep: flymake, eldoc, project.el )
 (el-get 'sync "flycheck")
@@ -230,6 +226,31 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
 (require 'lua-mode)
 (require 'company-lua)
+
+;; Julia
+(package-install 'julia-mode)
+(add-to-list 'load-path "~/.emacs.d/elpa/julia-mode-0.4")
+(require 'julia-mode)
+
+(el-get 'sync "ht")
+(add-to-list 'load-path "~/.emacs.d/el-get/ht")
+(el-get 'sync "hydra")
+(add-to-list 'load-path "~/.emacs.d/el-get/hydra")
+(el-get 'sync "spinner")
+(add-to-list 'load-path "~/.emacs.d/el-get/spinner")
+(add-to-list 'load-path "~/.emacs.d/packages/lsp-julia")
+(add-to-list 'load-path "~/.emacs.d/el-get/lsp-mode")
+(add-to-list 'load-path "~/.emacs.d/el-get/lsp-mode")
+
+(require 'ht)
+(require 'lv)
+(require 'spinner)
+(require 'lsp-mode)
+(require 'lsp-julia)
+
+;; Configure lsp + julia
+(add-hook 'julia-mode-hook #'lsp-mode)
+(add-hook 'julia-mode-hook #'lsp)
 
 ;; Control mode:
 (el-get 'sync "control-mode")
@@ -494,9 +515,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-dark))
+ '(custom-enabled-themes '(lenlen))
  '(custom-safe-themes
-   '("c559f81e30202625dacf1b22a88a23e547879ac017c829c4bfb6737b41a5516e" default))
+   '("3647aa8082ce637a16f2b63578388d83c6d0db52dafdac9d0045e0fb682ba5fb" default))
+ '(package-selected-packages '(project julia-mode haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

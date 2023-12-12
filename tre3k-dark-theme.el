@@ -51,6 +51,7 @@
  '(tab-bar-tab ((t (:inherit tab-bar :background "#343434"))))
  '(tab-bar-tab-inactive ((t (:background "#444444"))))
  '(calendar-today  ((t (:background "#24613e"))))
+;; '(calendar-set-mark ((t (:background "#ff0000"))))
  )
 
 (provide-theme 'tre3k-dark)
