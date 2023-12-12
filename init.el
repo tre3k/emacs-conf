@@ -515,9 +515,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(lenlen))
+ '(custom-enabled-themes '(tre3k-light))
  '(custom-safe-themes
-   '("3647aa8082ce637a16f2b63578388d83c6d0db52dafdac9d0045e0fb682ba5fb" default))
+   '("2e582258058f1477b9992d4e174fdbbdd7dac60e1b01efc5fde2a0381dad4b7c" default))
  '(package-selected-packages '(project julia-mode haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
