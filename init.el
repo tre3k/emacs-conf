@@ -495,6 +495,15 @@
 (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
 (add-hook 'calendar-today-visible-hook 'calendar-mark-holidays)
 
+;; eshell
+(defun eshell-new()
+  "open new instacnce eshell"
+  (interactive)
+  (eshell 'N)
+  )
+
+(add-hook 'eshell-mode-hook (lambda () (setenv "TERM" "xterm-256color")))
+
 ;; -------------------------------- TAGS: ---------------------------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
 ;; M-. переход от декларации к функции/переменной
