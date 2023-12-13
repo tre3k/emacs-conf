@@ -489,9 +489,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-dark))
+ '(custom-enabled-themes '(tre3k-dark tre3k-light))
  '(custom-safe-themes
-   '("c559f81e30202625dacf1b22a88a23e547879ac017c829c4bfb6737b41a5516e" default))
+   '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8" "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd" default))
+ '(package-selected-packages '(project julia-mode haskell-mode))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
