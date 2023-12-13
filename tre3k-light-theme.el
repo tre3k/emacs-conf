@@ -1,4 +1,4 @@
-;; Copyright (c) 2022 Kirill Pshenichnyi
+;; Copyright (c) 2023 Kirill Pshenichnyi
 ;;
 ;; Permission is hereby granted, free of charge, to any person obtaining
 ;; a copy of this software and associated documentation files (the
@@ -169,6 +169,9 @@
 			       :background ,tab-bar-background
 			       ))))
 
+   `(fringe ((t (:background ,background_color))))
+   `(calendar-today  ((t (:background "#8bfdbc"))))
+
    ;; Minibuffer
    `(minibuffer-prompt ((t (
 			    :weight bold
@@ -191,9 +194,7 @@
 			     :foreground ,mode_line_inactive_foreground
 			     :background ,mode_line_inactive_background
 			     ))))
-
    )
   )
-
 
 (provide-theme 'tre3k-light)

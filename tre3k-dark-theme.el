@@ -1,57 +1,201 @@
-(deftheme tre3k-dark
-  "Created 2021-05-25.")
+;; Copyright (c) 2023 Kirill Pshenichnyi
+;;
+;; Permission is hereby granted, free of charge, to any person obtaining
+;; a copy of this software and associated documentation files (the
+;; "Software"), to deal in the Software without restriction, including
+;; without limitation the rights to use, copy, modify, merge, publish,
+;; distribute, sublicense, and/or sell copies of the Software, and to
+;; permit persons to whom the Software is furnished to do so, subject to
+;; the following conditions:
+;;
+;; The above copyright notice and this permission notice shall be
+;; included in all copies or substantial portions of the Software.
+;;
+;; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+;; EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+;; MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+;; NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+;; LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+;; OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+;; WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(custom-theme-set-faces
- 'tre3k-dark
- '(default ((t (:family "Victor Mono" :foundry "UKWN" :width normal :height 128 :weight normal :slant normal :underline nil :overline nil :extend nil :strike-through nil :box nil :inverse-video nil :foreground "#e6e3d8" :background "#343434" :stipple nil :inherit nil))))
- '(cursor ((t (:background "#656565"))))
- '(fixed-pitch ((t (:family "Victor Mono"))))
- '(variable-pitch ((((type w32)) (:foundry "outline" :family "Arial")) (t (:family "Sans Serif"))))
- '(escape-glyph ((t (:weight bold :foreground "#ddaa6f"))))
- '(homoglyph ((t (:weight bold :foreground "#ddaa6f"))))
- '(minibuffer-prompt ((t (:foreground "#e5786d"))))
- '(highlight ((t (:background "#654545" :foreground "#ffffff" :underline nil))))
- '(region ((t (:extend t :foreground "#f6f3e8" :background "#444444"))))
- '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "grey50")) (((class color grayscale) (min-colors 88) (background dark)) (:foreground "grey70")) (((class color) (min-colors 8) (background light)) (:foreground "green")) (((class color) (min-colors 8) (background dark)) (:foreground "yellow"))))
- '(secondary-selection ((t (:extend t :foreground "#f6f3e8" :background "#333366"))))
- '(trailing-whitespace ((((class color) (background light)) (:background "red1")) (((class color) (background dark)) (:background "red1")) (t (:inverse-video t))))
- '(font-lock-builtin-face ((t (:foreground "#e5786d"))))
- '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:family "Victor Mono" :slant italic :foreground "#99968b"))))
- '(font-lock-constant-face ((t (:foreground "#e5786d"))))
- '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
- '(font-lock-function-name-face ((t (:foreground "#cae682"))))
- '(font-lock-keyword-face ((t (:weight bold :foreground "#8ac6f2"))))
- '(font-lock-negation-char-face ((t nil)))
- '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
- '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
- '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
- '(font-lock-string-face ((t (:slant italic :foreground "#e5786d"))))
- '(font-lock-type-face ((t (:weight bold :foreground "#04a040"))))
- '(font-lock-variable-name-face ((t (:foreground "#cae682"))))
- '(font-lock-warning-face ((t (:foreground "#ccaa8f"))))
- '(button ((t (:foreground "#f6f3e8" :background "#333333"))))
- '(link ((t (:underline (:color foreground-color :style line) :foreground "#8ac6f2"))))
- '(link-visited ((t (:underline (:color foreground-color :style line) :foreground "#e5786d"))))
- '(fringe ((t (:background "#303030"))))
- '(header-line ((t (:foreground "#e7f6da" :background "#303030"))))
- '(tooltip ((t (:foreground "black" :background "lightyellow" :inherit (variable-pitch)))))
- '(mode-line ((t (:foreground "#f6f3e8" :background "#444444"))))
- '(mode-line-buffer-id ((t (:weight bold))))
- '(mode-line-emphasis ((t (:weight bold))))
- '(mode-line-highlight ((t (:box (:line-width 2 :color "#447674" :style nil)))))
- '(mode-line-inactive ((t (:foreground "#857b6f" :background "#444444"))))
- '(isearch ((t (:foreground "#857b6f" :background "#343434"))))
- '(isearch-fail ((((class color) (min-colors 88) (background light)) (:background "RosyBrown1")) (((class color) (min-colors 88) (background dark)) (:background "red4")) (((class color) (min-colors 16)) (:background "red")) (((class color) (min-colors 8)) (:background "red")) (((class color grayscale)) (:foreground "grey")) (t (:inverse-video t))))
- '(lazy-highlight ((t (:foreground "#a0a8b0" :background "#384048"))))
- '(match ((t (:background "RoyalBlue1"))))
- '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch)))))
- '(tab-bar ((t (:background "#444444" :foreground "#f6f3e8" :family "Victor Mono SemiBold"))))
- '(tab-bar-tab ((t (:inherit tab-bar :background "#343434"))))
- '(tab-bar-tab-inactive ((t (:background "#444444"))))
- '(calendar-today  ((t (:background "#24613e"))))
-;; '(calendar-set-mark ((t (:background "#ff0000"))))
- )
+(deftheme tre3k-dark "My generic dark theme")
+
+(let (;; Base font
+      (font_family "Victor Mono")
+      (font_height 128)
+
+      (font_lock_constant_family "Victor Mono SemiBold")
+
+      ;; Colors:
+      (background_color "#343434")
+      (foreground_color "#e6e3d8")
+
+      ;; Cursor
+      (cursor_color "#656565")
+      ;; Selection
+      (region_color "#414141")
+      ;; Escape glyph
+      (escape_glyph_color "#ddaa6f")
+
+      ;;Tab bar colors
+      (tab-bar-background "#444444")
+      (tab-bar-tab-background "#343434")
+
+      ;; Mode line
+      (mode_line_foreground "#e5e3d9")
+      (mode_line_background "#444444")
+      (mode_line_inactive_foreground "#857b6f")
+      (mode_line_inactive_background "#444444")
+
+      ;; Syntax color scheme
+      (font_lock_comment_color  "#99968b")
+      (font_lock_builtin_color  "#e5786d")
+      (font_lock_constan_color  "#e5786d")
+      (font_lock_variable_color "#cae682")
+      (font_lock_string_color   "#e5786d")
+      (font_lock_keyword_color  "#8ac6f2")
+      (font_lock_function_color "#cae682")
+      (font_lock_warning_color  "#ccaa8f")
+      (font_lock_type_color     "#04a040")
+
+      )
+
+
+  (custom-theme-set-faces
+   'tre3k-dark
+
+   ;; Basic
+   `(default ((t (
+		  :family ,font_family
+		  :height, font_height
+		  :background ,background_color
+		  :foreground ,foreground_color
+		  ))))
+
+   `(cursor ((t (
+		 :background ,cursor_color
+		 ))))
+
+   `(region ((t (
+		 :background ,region_color
+		 ))))
+   `(escape-glyph ((t (
+		       :weight bold
+		       :foreground ,escape_glyph_color
+		       ))))
+
+
+
+   ;; Set syntax color scheme
+   `(font-lock-builtin-face ((t (
+				 :foreground ,font_lock_builtin_color
+				 ))))
+
+   `(font-lock-comment-face ((t (
+				 :family ,font_family
+				 :slant italic
+				 :foreground ,font_lock_comment_color
+				 ))))
+
+   `(font-lock-comment-delimiter-face ((t (
+					   :inherit (font-lock-comment-face)
+					   ;; :family ,font_family
+					   ;; :weight bold
+					   ;; :foreground
+					   ;; ,font_lock_comment_color
+					   ))))
+
+   `(font-lock-constant-face ((t (
+				  :family ,font_lock_constant_family
+				  :foreground ,font_lock_constan_color
+				  ))))
+
+   `(font-lock-variable-name-face ((t (
+				       :foreground
+				       ,font_lock_variable_color
+				       ))))
+
+   `(font-lock-doc-face ((t (
+			     :foreground ,font_lock_comment_color
+			     ))))
+   `(font-lock-doc-markup-face (( t (
+				     :weight bold
+				     :foreground ,font_lock_comment_color
+				     ))))
+   `(font-lock-string-face ((t (
+				:slant italic
+				:foreground ,font_lock_string_color
+				))))
+   `(font-lock-keyword-face ((t (
+				 :weight bold
+				 :foreground ,font_lock_keyword_color
+				 ))))
+   `(font-lock-function-name-face ((t (
+				       :foreground ,font_lock_function_color
+				       ))))
+   `(font-lock-negation-char-face ((t nil)))
+   `(font-lock-preprocessor-face ((t (
+				      :inherit (font-lock-builtin-face)
+				      ))))
+   `(font-lock-regexp-grouping-backslash ((t (
+					      :inherit (bold)
+					      ))))
+   `(font-lock-regexp-grouping-construct ((t (
+					      :inherit (bold)
+					      ))))
+   `(font-lock-warning-face ((t (
+				 :foreground
+				 ))))
+   `(font-lock-type-face ((t (
+			      :weight bold
+			      :foreground ,font_lock_type_color
+			      ))))
+
+   ;; Interface
+   `(header-line ((t (:foreground "#e7f6da" :background "#303030"))))
+   ;; Tab bar
+   `(tab-bar ((t (
+		  :background ,tab-bar-background
+		  :foreground "#f6f3e8"
+		  :family "Victor Mono SemiBold"
+		  ))))
+   `(tab-bar-tab ((t (
+		      :inherit tab-bar
+		      ;;:box (:line-width 3 :color ,tab-bar-tab-background)
+		      :background ,tab-bar-tab-background
+		      ))))
+   `(tab-bar-tab-inactive ((t (
+			       :foreground ,foreground_color
+			       :background ,tab-bar-background
+			       ))))
+
+   `(fringe ((t (:background ,background_color))))
+   `(calendar-today  ((t (:background "#24613e"))))
+
+   ;; Minibuffer
+   `(minibuffer-prompt ((t (
+			    :weight bold
+			    :foreground ,foreground_color
+			    ))))
+   ;; Mode line
+   `(mode-line ((t (
+		    :foreground ,mode_line_foreground
+		    :background ,mode_line_background))))
+   `(mode-line-buffer-id ((t (:weight bold))))
+   `(mode-line-emphasis ((t (:weight bold))))
+   `(mode-line-highlight ((t (
+			      :box (
+				    :line-width 2
+				    :color ,tab-bar-tab-background
+				    :style nil
+				    )
+			      ))))
+   `(mode-line-inactive ((t (
+			     :foreground ,mode_line_inactive_foreground
+			     :background ,mode_line_inactive_background
+			     ))))
+   )
+  )
 
 (provide-theme 'tre3k-dark)
