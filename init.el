@@ -24,7 +24,11 @@
 (setq x-select-enable-clipboard t)
 
 ;; show clock
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " "))))
+
 (display-time-mode 1)
+
 ;; d'not show welcome window
 (setq inhibit-splash-screen t)
 
