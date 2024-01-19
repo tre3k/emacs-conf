@@ -91,149 +91,77 @@
 (require 'tre3k-templates)                        ;; Just my templates
 (require 'move-text)
 
-;; -------------------------- Pulsar setup ----------------------------------;;
-(pulsar-setup)
 
-;; ----------------- Sync and add packages from el-get: ---------------------;;
-;; El-Get (contained in packages)
-(require 'el-get)
-;; ELPA
+;; ---------------------------- ELPA --------------------------------------- ;;
 (require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
 
 ;; Project
 (package-install 'project)
 
 ;; MAGIT:
-(add-to-list 'el-get-sources
-	     '(:name magit :info "docs"))
-(el-get 'sync "dash")
-(add-to-list 'load-path "~/.emacs.d/el-get/dash")
-(el-get 'sync "with-editor")
-(add-to-list 'load-path "~/.emacs.d/el-get/with-editor")
-(el-get 'sync "transient")
-(add-to-list 'load-path "~/.emacs.d/el-get/transient/lisp")
-(el-get 'sync "magit")
-(add-to-list 'load-path "~/.emacs.d/el-get/magit/lisp")
-(require 'magit)
+(package-install 'dash)
+(package-install 'with-editor)
+(package-install 'transient)
+(package-install 'magit)
 
 ;; Py-isort
-(el-get 'sync "py-isort")
-(add-to-list 'load-path "~/.emacs.d/el-get/py-isort")
-(require 'py-isort)
+(package-install 'py-isort)
 
 ;; Py-yapf (For PEP8 python)
-(el-get 'sync "py-yapf")
-(add-to-list 'load-path "~/.emacs.d/el-get/py-yapf")
-(require 'py-yapf)
+(package-install 'py-yapf)
 
 ;; ElDoc
-(el-get 'sync "c-eldoc")
-(add-to-list 'load-path "~/.emacs.d/el-get/c-eldoc")
-(el-get 'sync "css-eldoc")
-(add-to-list 'load-path "~/.emacs.d/el-get/css-eldoc")
-(el-get 'sync "eldoc-eval")
-(add-to-list 'load-path "~/.emacs.d/el-get/eldoc-eval")
-(require 'css-eldoc)
-(require 'c-eldoc)
-(require 'eldoc-eval)
+(package-install 'eldoc)
+(package-install 'eldoc-eval)
+(package-install 'css-eldoc)
+(package-install 'c-eldoc)
+(package-install 'c-eval)
+(package-install 'eldoc-cmake)
 
 ;; Haskell:
-(el-get 'sync "haskell-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/haskell-mode")
-(require 'haskell-mode)
+(package-install 'haskell-mode)
+(package-install 'dante)
 
 ;; Julia
 (package-install 'julia-mode)
 
-;; EGLOT: (dep: flymake, eldoc, project.el )
-(el-get 'sync "flycheck")
-(add-to-list 'load-path "~/.emacs.d/el-get/flycheck")
-(el-get 'sync "json-rpc")
-(add-to-list 'load-path "~/.emacs.d/el-get/json-rpc")
-(el-get 'sync "ac-company")
-(add-to-list 'load-path "~/.emacs.d/el-get/ac-company")
-(el-get 'sync "company-c-headers")
-(add-to-list 'load-path "~/.emacs.d/el-get/company-c-headers")
-(el-get 'sync "yasnippet")
-(add-to-list 'load-path "~/.emacs.d/el-get/yasnippet")
-(el-get 'sync "markdown-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/markdown-mode")
-(el-get 'sync "markdown-preview-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/markdown-preview-mode")
-(el-get 'sync "cperl-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/cperl-mode")
-(require 'flycheck)
-(require 'cperl-mode)
-(require 'flycheck)
-(require 'json-rpc)
-(require 'ac-company)
-(require 'company-c-headers)
-(require 'yasnippet)
-(require 'markdown-mode)
-(require 'markdown-preview-mode)
-(require 'eglot)
+;; EGLOT with depends
+(package-install 'eglot)
+(package-install 'flycheck-eglot)
+(package-install 'json-rpc)
+(package-install 'company-c-headers)
+(package-install 'yasnippet)
+(package-install 'markdown-mode)
+(package-install 'markdown-preview-mode)
+(package-install 'cperl-mode)
 
 ;; Go-Lang:
-(el-get 'sync "go-mode")
-;; (el-get 'sync "go-company")
-;; (el-get 'sync "go-eldoc")
-;; (el-get 'sync "go-flymake")
-;; (add-to-list 'load-average "~/.emacs.d/el-get/go-mode")
-;; (add-to-list 'load-average "~/.emacs.d/el-get/go-company")
-;; (add-to-list 'load-average "~/.emacs.d/el-get/go-eldoc"
-;; (add-to-list 'load-average "~/.emacs.d/el-get/go-flymake")
-(require 'go-mode)
-
-;; Docker:
-(el-get 'sync "docker")
-(add-to-list 'load-path "~/.emacs.d/el-get/docker")
-(el-get 'sync "dockerfile-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/dockerfile-mode")
-(el-get 'sync "yaml-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/yaml-mode")
-(require 'docker)
-(require 'dockerfile-mode)
-(require 'yaml-mode)
-(require 'docker-compose-mode)  ;; from ~/.emacs.d/packages/
+(package-install 'go-mode)
 
 ;; Org-mode and etc:
-(el-get 'sync "org-tree-slide") ;; presentation in org mode
-(add-to-list 'load-path "~/.emacs.d/el-get/org-tree-slide")
-(require 'org-tree-slide)
+(package-install 'org-tree-slide)
 
 ;; AUCTeX:
-;; (el-get 'sync "auctex")
-;; (add-to-list 'load-path "~/.emacs.d/el-get/auctex")
-;; (require 'auctex)
+(package-install 'auctex)
 
 ;; NAV:
-(el-get 'sync "nav")
-(add-to-list 'load-path "~/.emacs.d/el-get/nav")
-(require 'nav)
+(package-install 'nav)
 
-(el-get 'sync "pkgbuild-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/pkgbuild-mode")
-(require 'pkgbuild-mode)
+;; PKGBUILD mode for ArchLinux package files (makepkg)
+(package-install 'pkgbuild-mode)
 
 ;; LUA mode:
-(el-get 'sync "s")
-(el-get 'sync "f")
-(add-to-list 'load-path "~/.emacs.d/el-get/s")
-(add-to-list 'load-path "~/.emacs.d/el-get/f")
-(require 's)
-(require 'f)
+(package-install 's)
+(package-install 'f)
 
-(el-get 'sync "lua-mode")
-(el-get 'sync "company-lua")
-(add-to-list 'load-path "~/.emacs.d/el-get/lua-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/company-lua")
-(require 'lua-mode)
-(require 'company-lua)
+(package-install 'lua-mode)
+(package-install 'company-lua)
 
 ;; Control mode:
-(el-get 'sync "control-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/control-mode")
-(require 'control-mode)
+(package-install 'control-mode)
 
 ;; Bookmark+:
 ;; C-x r m - set bookmark
@@ -242,22 +170,16 @@
 ;;                           o - open in other buffer
 ;;                           d - mark for delete,  x - accept
 ;;                           r - rename)
-(el-get 'sync "bookmark+")
-(add-to-list 'load-path "~/.emacs.d/el-get/bookmark+")
+
 (require 'bookmark+)
 
+
 ;; GnuPLOT:
-(el-get' sync "gnuplot-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/gnuplot-mode")
-(require 'gnuplot)
+(package-install 'gnuplot-mode)
 
 ;; LaTex:
-(el-get 'sync "magic-latex-buffer")
-(add-to-list 'load-path "~/.emacs.d/el-get/magic-latex-buffer")
-(el-get 'sync "company-math")
-(add-to-list 'load-path "~/.emacs.d/el-get/company-math")
-(require 'magic-latex-buffer)
-(require 'company-math)
+(package-install 'magic-latex-buffer)
+(package-install 'company-math)
 
 (setq TeX-parse-self t)                           ; Enable parse on load.
 (setq TeX-auto-save t)                            ; Enable parse on save.
@@ -266,9 +188,7 @@
 
 
 ;; Vimrc:
-(el-get 'sync "vimrc-mode")
-(add-to-list 'load-path "~/.emacs.d/el-get/vimrc-mode")
-(require 'vimrc-mode)
+(package-install 'vimrc-mode)
 
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
@@ -280,7 +200,7 @@
 (bmkp-toggle-auto-light-when-set)
 
 (set-face-attribute 'bmkp-light-non-autonamed nil
-		    :background "#225222")
+                   :background "#225222")
 
 (control-mode-default-setup)
 (tab-bar-mode)
