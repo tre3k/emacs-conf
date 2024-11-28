@@ -163,6 +163,9 @@
 ;; Control mode:
 (package-install 'control-mode)
 
+;; Qt *.pro files mode
+(package-install 'qt-pro-mode)
+
 ;; Bookmark+:
 ;; C-x r m - set bookmark
 ;; C-x j j - jump to bookmark
@@ -189,6 +192,9 @@
 
 ;; Vimrc:
 (package-install 'vimrc-mode)
+
+;; Systemd-mode for editing unit systemd files
+(package-install 'systemd)
 
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
@@ -228,9 +234,11 @@
 	(holiday-fixed 7 1 "Рождество")
 	(holiday-fixed 2 23 "День защитника Отечества")
 	(holiday-fixed 3 8 "Международный женский день")
+	(holiday-fixed 4 29 "День труда")
+	(holiday-fixed 4 30 "День труда")
 	(holiday-fixed 5 1 "День труда")
-	(holiday-fixed 5 2 "День труда")
 	(holiday-fixed 5 9 "День Победы")
+	(holiday-fixed 5 10 "День Победы")
 	(holiday-fixed 6 12 "День России")
 	(holiday-fixed 11 4 "День Народного единства")
 	))
@@ -281,13 +289,13 @@
 ;; List org files for agenda
 ;; (setq org-agenda-files '("add your org files"
 ;;                          "here for the agenda"
-;; 			 )
+;;                      )
 ;;       )
 
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
       '((sequence "TODO" "VERIFY" "LOW" "INPROCESS"
-                  "|" "DONE" "DELEGATED" "CANCELED"))
+                  "|" "DONE" "DELEGATED" "CANCELED" "FAILURE"))
       )
 
 ;; Enable some language for #+BEGIN_SRC evaluation block code
@@ -416,7 +424,8 @@
  '(custom-enabled-themes '(tre3k-dark tre3k-light))
  '(custom-safe-themes
    '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8" "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd" default))
- '(package-selected-packages '(project julia-mode haskell-mode))
+ '(package-selected-packages
+   '(systemd qt-pro-mode vimrc-mode company-math magic-latex-buffer gnuplot-mode control-mode company-lua lua-mode f s pkgbuild-mode nav auctex org-tree-slide go-mode cperl-mode markdown-preview-mode markdown-mode yasnippet company-c-headers json-rpc flycheck-eglot eglot julia-mode dante haskell-mode eldoc-cmake c-eval c-eldoc css-eldoc eldoc-eval eldoc py-yapf py-isort magit transient with-editor dash project))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
