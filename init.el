@@ -193,6 +193,10 @@
 ;; Vimrc:
 (package-install 'vimrc-mode)
 
+;; Systemd-mode for editing unit systemd files
+(package-install 'systemd)
+
+
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
 ;; enable auto-complete-mode for all buffers
@@ -422,7 +426,7 @@
  '(custom-safe-themes
    '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8" "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd" default))
  '(package-selected-packages
-   '(qt-pro-mode vimrc-mode company-math magic-latex-buffer gnuplot-mode control-mode company-lua lua-mode f s pkgbuild-mode nav auctex org-tree-slide go-mode cperl-mode markdown-preview-mode markdown-mode yasnippet company-c-headers json-rpc flycheck-eglot eglot julia-mode dante haskell-mode eldoc-cmake c-eval c-eldoc css-eldoc eldoc-eval eldoc py-yapf py-isort magit transient with-editor dash project))
+   '(systemd qt-pro-mode vimrc-mode company-math magic-latex-buffer gnuplot-mode control-mode company-lua lua-mode f s pkgbuild-mode nav auctex org-tree-slide go-mode cperl-mode markdown-preview-mode markdown-mode yasnippet company-c-headers json-rpc flycheck-eglot eglot julia-mode dante haskell-mode eldoc-cmake c-eval c-eldoc css-eldoc eldoc-eval eldoc py-yapf py-isort magit transient with-editor dash project))
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
