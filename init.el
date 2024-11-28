@@ -292,7 +292,7 @@
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
       '((sequence "TODO" "VERIFY" "LOW" "INPROCESS"
-                  "|" "DONE" "DELEGATED" "CANCELED"))
+                  "|" "DONE" "DELEGATED" "CANCELED" "FAILURE"))
       )
 
 ;; Enable some language for #+BEGIN_SRC evaluation block code
