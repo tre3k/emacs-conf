@@ -234,13 +234,15 @@
 	(holiday-fixed 7 1 "Рождество")
 	(holiday-fixed 2 23 "День защитника Отечества")
 	(holiday-fixed 3 8 "Международный женский день")
-	(holiday-fixed 4 29 "День труда")
-	(holiday-fixed 4 30 "День труда")
 	(holiday-fixed 5 1 "День труда")
+	(holiday-fixed 5 2 "День труда")
+	(holiday-fixed 5 8 "День Победы")
 	(holiday-fixed 5 9 "День Победы")
-	(holiday-fixed 5 10 "День Победы")
 	(holiday-fixed 6 12 "День России")
+	(holiday-fixed 6 13 "День России")
+	(holiday-fixed 11 3 "День Народного единства")
 	(holiday-fixed 11 4 "День Народного единства")
+	(holiday-fixed 12 31 "Новый год")
 	))
 
 ;; ------------------------- Ligature settings ----------------------------- ;;
