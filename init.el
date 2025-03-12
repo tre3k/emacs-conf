@@ -13,7 +13,7 @@
 (blink-cursor-mode 0)
 
 ;; vertival line 80 charset
-(setq-default display-fill-column-indicator-column 79)
+(setq-default display-fill-column-indicator-column 80)
 
 ;; good buufer shower
 (setq redisplay-dont-pause t)
@@ -49,7 +49,7 @@
 (setq show-paren-style 'parenthesis)
 
 ;; 4 spaces as tabulation
-;;(c-set-offset 'defun-block-intro 4)
+(c-set-offset 'defun-block-intro 6)
 (setq c-default-style "linux" c-basic-offset 8)
 
 ;; d'not break line
@@ -196,6 +196,14 @@
 ;; Systemd-mode for editing unit systemd files
 (package-install 'systemd)
 
+;; Calfw
+;; command: cfw:open-calendar-buffer
+(package-install 'calfw)
+(package-install 'calfw-cal)
+(package-install 'calfw-org)
+(require 'calfw)
+(require 'calfw-org)
+
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
 ;; enable auto-complete-mode for all buffers
@@ -313,6 +321,7 @@
 
 (global-set-key (kbd "C-u") 'revert-buffer)
 (global-set-key (kbd "C-i") 'indent-region)
+(global-set-key (kbd "C-M-i") 'eglot-format)
 
 (global-set-key (kbd "<C-tab>") 'company-complete)
 
@@ -386,6 +395,10 @@
 	  (lambda ()
 	    (local-set-key (kbd "C-c r") 'eglot-rename)))
 
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+	       '(c++-mode . ("clangd" "--enable-config"))))
+
 ;; Latex-mode
 (add-hook 'latex-mode-hook 'reftex-mode)
 (add-hook 'bibtex-mode-hook 'reftex-mode)
@@ -425,9 +438,10 @@
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark tre3k-light))
  '(custom-safe-themes
-   '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8" "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd" default))
- '(package-selected-packages
-   '(systemd qt-pro-mode vimrc-mode company-math magic-latex-buffer gnuplot-mode control-mode company-lua lua-mode f s pkgbuild-mode nav auctex org-tree-slide go-mode cperl-mode markdown-preview-mode markdown-mode yasnippet company-c-headers json-rpc flycheck-eglot eglot julia-mode dante haskell-mode eldoc-cmake c-eval c-eldoc css-eldoc eldoc-eval eldoc py-yapf py-isort magit transient with-editor dash project))
+   '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8"
+     "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd"
+     default))
+ '(package-selected-packages nil)
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
