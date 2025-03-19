@@ -1,23 +1,36 @@
 ;; Macros for create cpp project with CMake
 
+;; Some settings:
+(setq autor-name "Kirill Pshenichnyi <pshcyrill@mail.ru>")
+(setq source-sub-dir "Source")
+(setq cmake-minimum-required "3.30")
+(setq cmake-cxx-standart "23")
+
+(setq gnu-gpl-insert-license t)
+
+;; Тут лучше не определять переменные, а сделать отдельные
+;; интерактивные функции, чтобы можно было вносить изменения в уже
+;; существующий проект
+;; (defun cpp-project-add-tests ())
+;; (defun cpp-project-add-qt-libs ())
+;; ...
+(setq add-tests t)
+(setq add-qt-libs nil)
+(setq add-libusb-lib nil)
+(setq add-hdf5-lib nil)
+
 (defun create-cpp-project (project-directory project-name)
   (interactive "fProject directory: \nsProject-name: \n")
 
   (require 'magit)
 
-  (if (directory-name-p project-directory)
-      (setq project-full-path
-	    (concat project-directory project-name))
-    )
-  (if (not (directory-name-p project-directory))
-      (setq project-full-path
-	    (concat (concat project-directory "/") project-name))
-    )
-  (if (not (file-directory-p project-full-path))
-      (mkdir project-full-path)
-    )
-  (cd project-full-path)
-  (magit-init project-full-path)
+  (setq pathes (create-project-directory-if-not-exist
+		project-directory project-name))
+  (setq project-root-path (nth 0 pathes))
+  (setq source-path (nth 1 pathes))
+
+  (cd project-root-path)
+  (magit-init project-root-path)
 
   ;; create .clang-format file
   (setq clang-format-buffer ".clang-format")
@@ -25,11 +38,42 @@
    clang-format-buffer
    clang-format-content)
 
+  (setq cmake-lists-buffer "CMakeLists.txt")
+  (create-buffer-with-content
+   cmake-lists-buffer
+   cmake-lists-content)
+  (replace-from-start "@CMAKE-MIN-REQ@" cmake-minimum-required)
+  (replace-from-start "@PROJECT-NAME@" project-name)
+  (replace-from-start "@SOURCE-SUB-DIR@" source-path)
+  (replace-from-start "@CMAKE-CXX-STANDART@" cmake-cxx-standart)
+
   ;; create .gitignore file
   (setq gitignore-buffer ".gitignore")
   (create-buffer-with-content
    gitignore-buffer
    gitignore-content)
+
+  ;; cd to Source directory
+  (cd source-path)
+
+  (setq config-h-buffer "config.h.in")
+  (create-buffer-with-content
+   config-h-buffer
+   config-h-content)
+  (if gnu-gpl-insert-license
+      (insert-to-cpp-gnu-gpl-license config-h-buffer project-name)
+    )
+
+  (setq main-cpp-buffer "main.cpp")
+  (create-buffer-with-content
+   main-cpp-buffer
+   main-cpp-content)
+  (if gnu-gpl-insert-license
+      (insert-to-cpp-gnu-gpl-license main-cpp-buffer project-name)
+    )
+
+  ;; cd to tests path
+  ;; create test files
 
   ;; (switch-to-buffer clang-format-buffer)
   (delete-other-windows)
@@ -50,10 +94,66 @@
   (magit-stage-file buffer-name)
   )
 
+(defun mkdir-if-not-exist (dir)
+  (if (not (file-directory-p dir))
+      (mkdir dir))
+  )
+
+(defun create-project-directory-if-not-exist (project-directory project-name)
+  (if (directory-name-p project-directory)
+      (setq project-full-path
+	    (concat project-directory project-name))
+    )
+  (if (not (directory-name-p project-directory))
+      (setq project-full-path
+	    (concat (concat project-directory "/") project-name))
+    )
+
+  (mkdir-if-not-exist project-full-path)
+
+  (setq source-full-path (concat project-full-path (concat "/" source-sub-dir)))
+  (mkdir-if-not-exist source-full-path)
+
+  ;; Перенести в (cpp-project-add-tests)
+  (if add-tests
+      (setq test-full-path (concat source-full-path (concat "/" "tests")))
+    )
+  (if add-tests (mkdir-if-not-exist test-full-path))
+  (setq retval (list project-full-path source-full-path))
+  (if add-tests (append retval (list test-full-path)))
+  )
+
+;; Тут нужно сделать единый интерфейс, например insert-to-cpp-license
+;; а в нем уже выбирать какую лицензию вставить
+
+(defun insert-to-cpp-gnu-gpl-license (buffer-name project-name)
+  (switch-to-buffer buffer-name)
+  (beginning-of-buffer)
+  (insert gnu-gpl-license-cpp-header-content)
+  (replace-from-start "@AUTOR@" autor-name)
+  (replace-from-start "@PROJECT-NAME@" project-name)
+  (replace-from-start "@YEAR@" (yearstamp))
+  (beginning-of-buffer)
+  (write-file buffer-name)
+  )
+
+(defun replace-from-start (text1 text2)
+  (beginning-of-buffer)
+  (replace-regexp text1 text2)
+  )
+
+;; Недописана, идея в замене * на #
+(defun insert-to-cmake-gnu-gpl-license (buffer-name project-name)
+  (insert-to-cpp-gnu-gpl-license buffer-name project-name)
+  (beginning-of-buffer)
+  (rectangle-mark-mode 0)
+  ;;  (isearch-forward "*/")
+  ;;  (string-rectangle "#")
+  )
 
 ;; Yoy can change this content for you format
 (setq clang-format-content
-"---
+      "---
 Language:        Cpp
 AccessModifierOffset: -8
 AlignAfterOpenBracket: Align
@@ -363,16 +463,77 @@ WhitespaceSensitiveMacros:
 ")
 
 (setq gitignore-content
-"/bin/
+      "/bin/
 /build/
 /.cache/
 ")
 
+(setq gnu-gpl-license-cpp-header-content
+      "/*
+ *  Copyright (c) @YEAR@ @AUTOR@
+ *
+ *  This file is part of @PROJECT-NAME@.
+ *
+ *  @PROJECT-NAME@ is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  @PROJECT-NAME@ is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with @PROJECT-NAME@.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *     Author: @AUTOR@
+ */
+
+")
+
 (setq main-cpp-content
-      "
-int main(int argc, char **argv) {
+      "int main(int argc, char **argv) {
         return 0;
 }
+")
+
+(setq config-h-content
+      "#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+#include <QStringList>
+
+#define APPLICATION_NAME @APPLICATION_NAME@
+#define APPLICATION_VERSION @APPLICATION_VERSION@
+#define APPLICATION_DESCRIPTION \"@PROJECT-NAME@\"
+
+#define BUILT_TIMESTAMP @TODAY_TEXT@
+#define BUILT_COMPILER_VERSION @CMAKE_CXX_COMPILER_VERSION_TEXT@
+#define BUILT_COMPILER_ID @CMAKE_CXX_COMPILER_ID_TEXT@
+#define COPYRIGHT_YEAR @COPY_YEAR_TEXT@
+
+#endif
+")
+
+(setq cmake-lists-content
+      "cmake_minimum_required(VERSION @CMAKE-MIN-REQ@)
+
+set(PROGRAM_NAME @PROJECT-NAME@)
+project(${PROGRAM_NAME})
+set(SOURCES_SUBDIR @SOURCE-SUB-DIR@)
+
+set(INCLUDES ${PROJECT_SOURCE_DIR}/${SOURCES_SUBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+set(CMAKE_CXX_STANDARD @CMAKE-CXX-STANDART@)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include_directories(${INCLUDES})
+
+add_executable(${PROGRAM_NAME}
+  ${SOURCES_SUBDIR}/main.cpp
+)
 ")
 
 (provide 'create-cpp-project)
