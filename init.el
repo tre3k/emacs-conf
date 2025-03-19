@@ -60,6 +60,10 @@
 
 ;; do-not show some warnings
 (setq warning-minimum-level :emergency)
+
+;; tramp default method, c-x c-f /user@remote:/path/to/file
+(setq tramp-default-method "ssh")
+
 ;; -------------------------- Requery packages:  --------------------------- ;;
 ;; load paths with packages:
 (add-to-list 'load-path "~/.emacs.d/packages")
@@ -84,11 +88,9 @@
 
 ;; ------------------------  Manual packages: ------------------------------ ;;
 (add-to-list 'load-path "~/.emacs.d/packages/cmake-mode")
-(add-to-list 'load-path "~/.emacs.d/packages/tre3k-templates")
 (add-to-list 'load-path "~/.emacs.d/packages/move-text")
 
-(require 'cmake-mode)                             ;; cmake-mode
-(require 'tre3k-templates)                        ;; Just my templates
+(require 'cmake-mode)
 (require 'move-text)
 
 
@@ -398,6 +400,10 @@
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
 	       '(c++-mode . ("clangd" "--enable-config"))))
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+	       '(python-mode . ("pylsp"))))
 
 ;; Latex-mode
 (add-hook 'latex-mode-hook 'reftex-mode)
