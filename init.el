@@ -360,6 +360,11 @@
 (global-set-key (kbd "M-p") 'move-text-up)
 (global-set-key (kbd "M-n") 'move-text-down)
 
+
+;; Specific key for some chars using in Julia
+(define-key key-translation-map (kbd "C-x 8 h") "ħ")
+(define-key key-translation-map (kbd "C-x 8 O o") "Ω")
+
 ;; ------------------------ Auto mode alist: ------------------------------- ;;
 (add-to-list 'auto-mode-alist '("\\.gp\\'" . (lambda() (gnuplot-mode))))
 (add-to-list 'auto-mode-alist '("\\.gpi\\'" . (lambda() (gnuplot-mode))))
@@ -387,6 +392,7 @@
 ;; (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
+(add-hook 'julia-mode 'eglot-jl-init)
 
 ;; for MaGit auto refresh after save
 (with-eval-after-load 'magit-mode
