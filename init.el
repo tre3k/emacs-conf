@@ -428,6 +428,11 @@
 (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
 (add-hook 'calendar-today-visible-hook 'calendar-mark-holidays)
 
+;; Just fomr my theme in DWM
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))
+
+
 ;; -------------------------------- TAGS: ---------------------------------- ;;
 ;; etags ./*.cpp ./*.h из системы, содаст файл TAGS с тегами
 ;; M-. переход от декларации к функции/переменной
