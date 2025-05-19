@@ -360,6 +360,8 @@
 (global-set-key (kbd "M-p") 'move-text-up)
 (global-set-key (kbd "M-n") 'move-text-down)
 
+;; hl-line-mode turn-on/off
+(global-set-key (kbd "C-c l") 'hl-line-mode)
 
 ;; Specific key for some chars using in Julia
 (define-key key-translation-map (kbd "C-x 8 h") "ħ")
