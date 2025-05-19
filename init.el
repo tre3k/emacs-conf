@@ -455,8 +455,8 @@
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
  '(custom-enabled-themes '(tre3k-dark tre3k-light))
  '(custom-safe-themes
-   '("fb3e371b23dbb84a0022bb346c3f0ee89bc6031cda9d79dc2d31b50b9df7fef8"
-     "61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd"
+   '("61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd"
+     "5664a88ce2496366986ac1c235f0661c687332b5e88e12a0186087211e1ccba3"
      default))
  '(package-selected-packages nil)
  '(send-mail-function 'sendmail-send-it))

@@ -31,8 +31,11 @@
       (background_color "#343434")
       (foreground_color "#e6e3d8")
 
+      (hl_background_color "#4d4324")
+      (hl_foreground_color "#e6e3d8")
+
       ;; Cursor
-      (cursor_color "#656565")
+      (cursor_color "#e9c9de")
       ;; Selection
       (region_color "#414141")
       ;; Escape glyph
@@ -72,6 +75,10 @@
 		  :background ,background_color
 		  :foreground ,foreground_color
 		  ))))
+   `(highlight ((t (
+		    :background ,hl_background_color
+		  ;;:foreground ,hl_foreground_color
+		    ))))
 
    `(cursor ((t (
 		 :background ,cursor_color
