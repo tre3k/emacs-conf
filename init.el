@@ -12,6 +12,9 @@
 ;; disable blink cursor
 (blink-cursor-mode 0)
 
+;; Spaces instead of tabs
+(setq indent-tabs-mode nil)
+
 ;; vertival line 80 charset
 (setq-default display-fill-column-indicator-column 80)
 
