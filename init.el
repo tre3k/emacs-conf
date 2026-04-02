@@ -183,6 +183,8 @@
 
 (require 'bookmark+)
 
+;; Muse
+(package-install 'muse)
 
 ;; GnuPLOT:
 (package-install 'gnuplot-mode)
