@@ -168,6 +168,11 @@
 ;; Qt *.pro files mode
 (package-install 'qt-pro-mode)
 
+;; Cmake
+(package-install 'cmake-font-lock)
+(package-install 'cmake-mode)
+(package-install 'cmake-ide)
+
 ;; Bookmark+:
 ;; C-x r m - set bookmark
 ;; C-x j j - jump to bookmark
