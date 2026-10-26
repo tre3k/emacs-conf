@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Start my options without theme (theme define in end this file)
 
 ;; -------------------------- General settings: -----------------------------;;
@@ -11,6 +12,12 @@
 (scroll-bar-mode 0)
 ;; disable blink cursor
 (blink-cursor-mode 0)
+
+;; auto insert break, quotation, etc
+;; (electric-pair-mode t)
+
+;; horizontal bar cursor type
+;; (setq cursor-type '(hbar . 2))
 
 ;; Spaces instead of tabs
 (setq indent-tabs-mode nil)
@@ -191,6 +198,7 @@
 
 ;; GnuPLOT:
 (package-install 'gnuplot-mode)
+(package-install 'gnuplot)
 
 ;; LaTex:
 (package-install 'magic-latex-buffer)
@@ -215,6 +223,12 @@
 (package-install 'calfw-org)
 (require 'calfw)
 (require 'calfw-org)
+
+
+;; UUID
+(package-install 'uuid)
+(package-install 'uuidgen)
+(require 'uuidgen)
 
 ;; ---------------------------- Start packages: ---------------------------- ;;
 
@@ -308,7 +322,10 @@
 
 ;; Hide some ** / / + + etc
 (setq org-hide-emphasis-markers t)
+
 ;; List org files for agenda
+;; В действительности лучше использовать отдельный загрузочный скрипт,
+;; который бы сам искал нужные орг файлы в орг каталоге
 ;; (setq org-agenda-files '("add your org files"
 ;;                          "here for the agenda"
 ;;                      )
@@ -316,7 +333,7 @@
 
 ;; TODO/DONE/DECLARATE/CANCELED
 (setq org-todo-keywords
-      '((sequence "TODO" "VERIFY" "LOW" "INPROCESS"
+      '((sequence "PLANNED" "TODO" "VERIFY" "LOW" "INPROCESS"
                   "|" "DONE" "DELEGATED" "CANCELED" "FAILURE"))
       )
 
@@ -465,11 +482,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "/home/kirill/.emacs.d/bookmarks")
- '(custom-enabled-themes '(tre3k-dark tre3k-light))
+ '(custom-enabled-themes '(tre3k-dark))
  '(custom-safe-themes
-   '("61594dbfc85a3042684f0abc283d187232166cc32b960a9db3240c58da59b9fd"
-     "5664a88ce2496366986ac1c235f0661c687332b5e88e12a0186087211e1ccba3"
+   '("00d23a26d549e0fbad1b39adaeaf9e8aa47f855ab495c3d336dfc946207ecc11"
      default))
+ '(muse-project-alist nil)
  '(package-selected-packages nil)
  '(send-mail-function 'sendmail-send-it))
 (custom-set-faces

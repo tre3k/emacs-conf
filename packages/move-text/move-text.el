@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun move-text-internal (arg)
   (cond
    ((and mark-active transient-mark-mode)
