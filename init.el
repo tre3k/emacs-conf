@@ -422,6 +422,8 @@
 (add-hook 'javascript-mode-hook 'hs-minor-mode)
 (add-hook 'sh-mode-hook 'hs-minor-mode)
 (add-hook 'julia-mode 'eglot-jl-init)
+(add-hook 'python-mode-hook
+          (lambda () (setq-local display-fill-column-indicator-column 88)))
 
 ;; for MaGit auto refresh after save
 (with-eval-after-load 'magit-mode
